@@ -11,6 +11,7 @@
     <artifactId>community-user-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>community-user-api</name>
+    <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
