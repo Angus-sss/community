@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: community-building-api
+  profiles:
+    active:
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.96.163.1:8848
+        file-extension: yml
+        refreshable-dataids: false

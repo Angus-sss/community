@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insedesign.communityuserapi.mapper.BusinessUserMapper">
+  <resultMap id="BaseResultMap" type="com.insedesign.communityuserapi.model.entity.BusinessUser">
+    <!--@mbg.generated-->
+    <!--@Table business_user-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="b_id" jdbcType="VARCHAR" property="bId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="location_cd" jdbcType="VARCHAR" property="locationCd" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="level_cd" jdbcType="VARCHAR" property="levelCd" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operate" jdbcType="VARCHAR" property="operate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, b_id, user_id, `name`, email, address, `password`, location_cd, age, sex, tel, 
+    level_cd, create_time, operate
+  </sql>
+</mapper>
