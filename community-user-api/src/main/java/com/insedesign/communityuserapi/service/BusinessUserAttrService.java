@@ -2,8 +2,8 @@ package com.insedesign.communityuserapi.service;
 
 /**
  * @Author: NALHOUG
- * @Time: 2019/11/7 19:39
+ * @Time: 2019/11/7 21:48
  * @Explain:
  */
-public interface UserService {
+public interface BusinessUserAttrService {
 }

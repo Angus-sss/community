@@ -24,4 +24,25 @@
     id, b_id, user_id, `name`, email, address, `password`, location_cd, age, sex, tel, 
     level_cd, create_time, operate
   </sql>
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByEmail" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkName" resultType="int">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

@@ -8,13 +8,25 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-@TableName(value = "business_user_tag")
-public class BusinessUserTag {
+@TableName(value = "business_building_owner_room_rel")
+public class BusinessBuildingOwnerRoomRel {
     /**
-     * 打标ID
+     * 关系ID
      */
-    @TableField(value = "tag_id")
-    private String tagId;
+    @TableField(value = "rel_id")
+    private String relId;
+
+    /**
+     * 业主ID
+     */
+    @TableField(value = "owner_id")
+    private String ownerId;
+
+    /**
+     * 房间ID
+     */
+    @TableField(value = "room_id")
+    private String roomId;
 
     /**
      * 业务Id
@@ -23,16 +35,16 @@ public class BusinessUserTag {
     private String bId;
 
     /**
+     * 业务状态  2001 业主未迁入 2002 业主迁入 2003 业主迁出
+     */
+    @TableField(value = "state")
+    private String state;
+
+    /**
      * 用户ID
      */
     @TableField(value = "user_id")
     private String userId;
-
-    /**
-     * 标签编码,参考tag表
-     */
-    @TableField(value = "tag_cd")
-    private String tagCd;
 
     /**
      * 备注
@@ -52,13 +64,17 @@ public class BusinessUserTag {
     @TableField(value = "operate")
     private String operate;
 
-    public static final String COL_TAG_ID = "tag_id";
+    public static final String COL_REL_ID = "rel_id";
+
+    public static final String COL_OWNER_ID = "owner_id";
+
+    public static final String COL_ROOM_ID = "room_id";
 
     public static final String COL_B_ID = "b_id";
 
-    public static final String COL_USER_ID = "user_id";
+    public static final String COL_STATE = "state";
 
-    public static final String COL_TAG_CD = "tag_cd";
+    public static final String COL_USER_ID = "user_id";
 
     public static final String COL_REMARK = "remark";
 

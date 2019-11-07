@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insedesign.communitybuildingapi.mapper.BusinessBuildingRoomMapper">
+  <resultMap id="BaseResultMap" type="com.insedesign.communitybuildingapi.model.entity.BusinessBuildingRoom">
+    <!--@mbg.generated-->
+    <!--@Table business_building_room-->
+    <result column="room_id" jdbcType="VARCHAR" property="roomId" />
+    <result column="b_id" jdbcType="VARCHAR" property="bId" />
+    <result column="room_num" jdbcType="VARCHAR" property="roomNum" />
+    <result column="unit_id" jdbcType="VARCHAR" property="unitId" />
+    <result column="layer" jdbcType="INTEGER" property="layer" />
+    <result column="section" jdbcType="INTEGER" property="section" />
+    <result column="apartment" jdbcType="VARCHAR" property="apartment" />
+    <result column="built_up_area" jdbcType="DECIMAL" property="builtUpArea" />
+    <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operate" jdbcType="VARCHAR" property="operate" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+</mapper>

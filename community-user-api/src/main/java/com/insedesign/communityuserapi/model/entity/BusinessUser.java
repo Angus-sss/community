@@ -7,9 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 import lombok.Data;
 
-/**
- * @author NALHOUG
- */
 @Data
 @TableName(value = "business_user")
 public class BusinessUser {
