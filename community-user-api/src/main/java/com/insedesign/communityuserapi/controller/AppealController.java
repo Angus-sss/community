@@ -3,6 +3,8 @@ package com.insedesign.communityuserapi.controller;
 import com.insedesign.communityuserapi.common.resp.Resp;
 import com.insedesign.communityuserapi.service.BusinessUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -13,12 +15,23 @@ import javax.annotation.Resource;
  * @Explain:
  */
 @RestController
-@RequestMapping(value = "/password")
-public class PasswordController {
+@RequestMapping(value = "/appeal ")
+public class AppealController {
     @Resource
     private BusinessUserService userService;
 
-    public Resp retrieve(){
+
+
+    @ResponseBody
+    @RequestMapping(value = "/pwd",method = RequestMethod.POST)
+    public Resp forgotPwd(){
+        Resp resp = new Resp();
+        return resp;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/account",method = RequestMethod.POST)
+    public Resp appealAccount(){
         Resp resp = new Resp();
         return resp;
     }

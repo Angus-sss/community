@@ -1,9 +1,11 @@
-/*
 package com.insedesign.communityuserapi.controller;
 
 import com.insedesign.communityuserapi.common.enmus.ResultCode;
 import com.insedesign.communityuserapi.common.resp.Base;
 import com.insedesign.communityuserapi.common.resp.Resp;
+import com.insedesign.communityuserapi.model.dto.UpdateUserDto;
+import com.insedesign.communityuserapi.model.entity.*;
+import com.insedesign.communityuserapi.model.vo.UserVo;
 import com.insedesign.communityuserapi.service.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,12 +16,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 
-*/
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 21:46
  * @Explain:
- *//*
+ */
 
 @RestController
 @RequestMapping(value = "/user")
@@ -35,12 +36,11 @@ public class UserController {
     @Resource
     private BusinessUserAddressService userAddressService;
 
-    */
-/**
-     *
+    /**
+     * @Explain 退出登录
      * @param request
-     * @return 退出登录
-     *//*
+     * @return
+     */
 
     @ResponseBody
     @RequestMapping(value = "/logout",method = RequestMethod.POST)
@@ -53,95 +53,84 @@ public class UserController {
         return resp;
     }
 
-    */
-/**
-     *
+    /**
+     * @Explain 查询用户地址
      * @param request
-     * @return 用户信息
-     *//*
-
+     * @return
+     * */
     @ResponseBody
-    @RequestMapping(value = "/info",method = RequestMethod.POST)
-    public Resp checkInfo(HttpServletRequest request){
-        Resp resp = new Resp();
-        User sUser = thisAccount(request);
-        System.out.println("当前Session用户:"+sUser);
-        System.out.println((sUser).getUserId());
-        //查询当前用户的详情信息
-        sUser.setPassword(null);
-        resp.setData(sUser);
-        resp.setResultCode(ResultCode.SUCCESS);
-        System.out.println(resp);
-        return resp;
+    @RequestMapping(value = "/address",method = RequestMethod.POST)
+    public Resp checkUserAddress(HttpServletRequest request){
+        BusinessUserAddress userAddress = userAddressService.selectByUserId(thisAccount(request).getUserId());
+        return Resp.success(userAddress);
     }
 
-    */
-/**
-     *
+    /**
+     * @Explain 查询用户订单
      * @param request
-     * @return 更多资料
-     *//*
-
+     * @return
+     *
+     */
     @ResponseBody
-    @RequestMapping(value = "/more",method = RequestMethod.POST)
-    public Resp checkMore(HttpServletRequest request){
-        Resp resp = new Resp();
-        User sUser = thisAccount(request);
-        UserInfo userInfo = userInfoService.selectUserInfo(sUser.getUserId());
-        System.out.println(userInfo);
-        resp.setData(userInfo);
-        return resp;
+    @RequestMapping(value = "/attr",method = RequestMethod.POST)
+    public Resp checkUserAttr(HttpServletRequest request){
+        BusinessUserAttr userAttr = userAttrService.selectByUserId(thisAccount(request).getUserId());
+        return Resp.success(userAttr);
+    }
+
+    /**
+     * @Explain 查询用户证件
+     * @param request
+     * @return
+     *
+     */
+    @ResponseBody
+    @RequestMapping(value = "/credentials",method = RequestMethod.POST)
+    public Resp checkUserCredentials(HttpServletRequest request){
+        BusinessUserCredentials userCredentials = userCredentialsService.selectByUserId(thisAccount(request).getUserId());
+        return Resp.success(userCredentials);
+    }
+
+    /**
+     * @Explain 查询用户标签
+     * @param request
+     * @return
+     *
+     */
+    @ResponseBody
+    @RequestMapping(value = "/tag",method = RequestMethod.POST)
+    public Resp checkUserTag(HttpServletRequest request){
+        BusinessUserTag userTag = userTagService.selectByUserId(thisAccount(request).getUserId());
+        return Resp.success(userTag);
     }
 
 
-    */
-/**
-     *
-     * @param user
+    /**
+     * @Explain 更改资料
      * @param request
-     * @return 更细资料
-     *//*
-
+     * @return
+     *
+     */
     @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.POST)
-    public Resp check(User user, HttpServletRequest request){
-        Resp resp = new Resp();
-        return resp;
+    public Resp check(UpdateUserDto updateUserDto, HttpServletRequest request){
+        if (0 < userService.updateUser(updateUserDto)){
+            BusinessUser user = userService.selectById(updateUserDto.getId());
+            return Resp.success(user);
+        }
+        return Resp.error(ResultCode.ERROR);
     }
 
-    */
-/**
-     *
-     * @param user
+
+    /**
+     * @Explain  从Session获取当前用户
      * @param request
-     * @return 关闭账户
-     *//*
-
-    @ResponseBody
-    @RequestMapping(value = "/offUser",method = RequestMethod.POST)
-    public Resp offUser(User user, HttpServletRequest request){
-        Resp resp = new Resp();
-        return resp;
+     * @return
+     */
+    private UserVo thisAccount(HttpServletRequest request){
+        UserVo user = (UserVo)request.getSession().getAttribute(Base.THIS_USER);
+        return user;
     }
-
-    private User thisAccount(HttpServletRequest request){
-        User sUser = (User)request.getSession().getAttribute(Base.THIS_USER);
-        return sUser;
-    }
-
-
-    @ResponseBody
-    @RequestMapping(value = "/getUserLv",method = RequestMethod.POST)
-    public Resp getUserLv(int userId, HttpServletRequest request){
-        Resp resp = new Resp();
-
-        resp.setMsg(userLvService.selectUserLv(userId));
-
-        return resp;
-    }
-
-
 
 
 }
-*/

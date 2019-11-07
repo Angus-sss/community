@@ -2,6 +2,8 @@ package com.insedesign.communityuserapi.common.resp;
 
 
 import com.insedesign.communityuserapi.common.enmus.ResultCode;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +13,7 @@ import java.util.Map;
  * @Time: 2019/11/7 19:39
  * @Explain:
  */
-
+@Data
 public class Resp<T> {
     //私有属性
     private Integer code;
@@ -66,27 +68,5 @@ public class Resp<T> {
         return simple;
     }
 
-    public Integer getCode() {
-        return code;
-    }
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }

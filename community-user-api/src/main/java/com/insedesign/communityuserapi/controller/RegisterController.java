@@ -1,11 +1,12 @@
-/*
 package com.insedesign.communityuserapi.controller;
 
 import com.insedesign.communityuserapi.common.enmus.ResultCode;
 import com.insedesign.communityuserapi.common.resp.Resp;
-import com.insedesign.communityuserapi.common.utils.Md5Utils;
 import com.insedesign.communityuserapi.model.dto.RegisterUserDto;
-import com.insedesign.communityuserapi.model.entity.BusinessUser;
+import com.insedesign.communityuserapi.model.entity.BusinessUserAddress;
+import com.insedesign.communityuserapi.model.entity.BusinessUserAttr;
+import com.insedesign.communityuserapi.model.entity.BusinessUserCredentials;
+import com.insedesign.communityuserapi.model.entity.BusinessUserTag;
 import com.insedesign.communityuserapi.service.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,12 +17,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
-*/
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 21:46
  * @Explain:
- *//*
+ */
 
 @RestController
 @RequestMapping("/register")
@@ -39,14 +39,39 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping(value = "/new",method = RequestMethod.POST)
-    public Resp register(RegisterUserDto user , HttpServletRequest request){
+    public Resp register(RegisterUserDto userDto , HttpServletRequest request){
         Resp resp = new Resp();
         //名字查重
-        if (userService.){
+        if (0 < userService.checkName(userDto.getName())){
             resp.setResultCode(ResultCode.HAS_EXISTED);
             return resp;
         }
-        registerNew(user,resp,request);
+        //根据影响行数做进一步处理
+        if (0==userService.insert(userDto)) {
+            resp.setResultCode(ResultCode.ACCOUNT_REGISTER_ERROR);
+            return resp;
+        }
+        //获取当前用户id
+        String userId = userService.selectByName(userDto.getName()).getUserId();
+
+        //创建关联数据
+        BusinessUserAddress newUserAddress = new BusinessUserAddress();
+        newUserAddress.setUserId(userId);
+        userAddressService.insert(newUserAddress);
+
+        BusinessUserAttr newUserAttr = new BusinessUserAttr();
+        newUserAddress.setUserId(userId);
+        userAttrService.insert(newUserAttr);
+
+        BusinessUserCredentials newUserCredentials = new BusinessUserCredentials();
+        newUserAddress.setUserId(userId);
+        userCredentialsService.insert(newUserCredentials);
+
+        BusinessUserTag newUserTag = new BusinessUserTag();
+        newUserTag.setUserId(userId);
+        userTagService.insert(newUserTag);
+
+        resp.setResultCode(ResultCode.ACCOUNT_REGISTER_SUCCESS);
         return resp;
     }
 
@@ -54,9 +79,7 @@ public class RegisterController {
     @RequestMapping(value = "/checkUsername", method = RequestMethod.POST)
     public Resp checkUsername(String username, HttpServletRequest request) {
         Resp resp = new Resp();
-        BusinessUser dbUser = userService.selectByName(username);
-        System.out.println("数据库获取的用户：" +dbUser);
-        if (null != dbUser) {
+        if (0 < userService.checkName(username)) {
             resp.setResultCode(ResultCode.ACCOUNT_HAS_USERNAME);
             return resp;
         }
@@ -67,11 +90,9 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping(value = "/checkEmail", method = RequestMethod.POST)
-    public Resp checkEmail(User user, HttpServletRequest request) {
+    public Resp checkEmail(String email, HttpServletRequest request) {
         Resp resp = new Resp();
-        User dbUser = userService.selectByEmail(user.getUsername());
-        System.out.println("数据库获取的用户：" +dbUser);
-        if (null != dbUser) {
+        if (0 < userService.checkEmail(email)) {
             resp.setResultCode(ResultCode.HAS_EXISTED);
             return resp;
         }
@@ -80,47 +101,5 @@ public class RegisterController {
     }
 
 
-    @ResponseBody
-    @RequestMapping(value = "/checkPhone", method = RequestMethod.POST)
-    public Resp checkPhone(User user, HttpServletRequest request) {
-        System.out.println("后台获取的用户：" + user);
-        Resp resp = new Resp();
-        User dbUser = userService.selectByPhone(user.getUsername());
-        System.out.println("数据库获取的用户：" +dbUser);
-        if (null != dbUser) {
-            resp.setResultCode(ResultCode.HAS_EXISTED);
-            return resp;
-        }        resp.setResultCode(ResultCode.SUCCESS);
-        return resp;
-    }
-
-    private void registerNew( RegisterUserDto user, Resp resp, HttpServletRequest request){
-        //Md5加密
-        user.setPassword(Md5Utils.encrypt3Times(user.getPassword()));
-        //生成注册时间
-        user.setCreateTime(new Date());
-        System.out.println(user);
-        //执行service
-
-        int rSet = userService.(user);
-
-        if (rSet>0){
-            resp.setResultCode(ResultCode.ACCOUNT_REGISTER_SUCCESS);
-            //获取当前用户id
-            Integer userId = userService.selectByUsername(user.getUsername()).getUserId();
-            //创建空的图片表
-            UserImg userImg = new UserImg();
-            userImg.setUserId(userId);
-            userImgService.newUserImg(userImg);
-            //创建空的信息表
-            UserInfo userInfo = new UserInfo();
-            userInfo.setUserId(userId);
-            userInfoService.newUserInfo(userInfo);
-
-        }else {
-            resp.setResultCode(ResultCode.ERROR);
-        }
-    }
 
 }
-*/

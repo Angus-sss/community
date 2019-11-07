@@ -2,6 +2,7 @@ package com.insedesign.communityuserapi.service;
 
 
 import com.insedesign.communityuserapi.model.dto.RegisterUserDto;
+import com.insedesign.communityuserapi.model.dto.UpdateUserDto;
 import com.insedesign.communityuserapi.model.entity.BusinessUser;
 
 /**
@@ -11,6 +12,8 @@ import com.insedesign.communityuserapi.model.entity.BusinessUser;
  */
 
 public interface BusinessUserService {
+    BusinessUser selectById(int id);
+
     int insert(RegisterUserDto user);
 
     BusinessUser selectByName(String username);
@@ -20,4 +23,6 @@ public interface BusinessUserService {
     int checkName(String username);
 
     int checkEmail(String email);
+
+    int updateUser(UpdateUserDto updateUserDto);
 }
