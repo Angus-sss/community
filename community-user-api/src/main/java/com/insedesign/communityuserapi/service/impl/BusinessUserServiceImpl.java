@@ -1,5 +1,6 @@
 package com.insedesign.communityuserapi.service.impl;
 
+import com.insedesign.communityuserapi.common.resp.Base;
 import com.insedesign.communityuserapi.common.utils.Md5Utils;
 import com.insedesign.communityuserapi.mapper.BusinessUserMapper;
 import com.insedesign.communityuserapi.model.dto.RegisterUserDto;
@@ -7,10 +8,11 @@ import com.insedesign.communityuserapi.model.dto.UpdateUserDto;
 import com.insedesign.communityuserapi.model.entity.BusinessUser;
 import com.insedesign.communityuserapi.service.BusinessUserService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
+
 
 /**
  * @Author: NALHOUG
@@ -31,9 +33,6 @@ public class BusinessUserServiceImpl implements BusinessUserService {
     public int insert(RegisterUserDto userDto) {
         //Md5加密
         userDto.setPassword(Md5Utils.encrypt3Times(userDto.getPassword()));
-        //生成注册时间
-        userDto.setCreateTime(new Date());
-        System.out.println(userDto);
         //执行service
         BusinessUser businessUser = new BusinessUser();
         BeanUtils.copyProperties(userDto,businessUser);
@@ -41,8 +40,8 @@ public class BusinessUserServiceImpl implements BusinessUserService {
     }
 
     @Override
-    public BusinessUser selectByName(String username) {
-        return userMapper.selectByName(username);
+    public BusinessUser selectByUserId(String userId) {
+        return userMapper.selectByUserId(userId);
     }
 
     @Override
@@ -51,13 +50,23 @@ public class BusinessUserServiceImpl implements BusinessUserService {
     }
 
     @Override
-    public int checkName(String username) {
-        return 0;
+    public BusinessUser selectByTel(String tel) {
+        return userMapper.selectByTel(tel);
     }
 
     @Override
     public int checkEmail(String email) {
-        return 0;
+        return userMapper.checkEmail(email);
+    }
+
+    @Override
+    public int checkTel(String tel) {
+        return userMapper.checkTel(tel);
+    }
+
+    @Override
+    public int checkUserId(String userId) {
+        return userMapper.checkUserId(userId);
     }
 
     @Override
@@ -65,6 +74,11 @@ public class BusinessUserServiceImpl implements BusinessUserService {
         BusinessUser user = new BusinessUser();
         BeanUtils.copyProperties(updateUserDto,user);
         return   userMapper.update(user,null);
+    }
+
+    @Override
+    public int offAccount(String userId) {
+        return userMapper.offAccount(Base.ACCOUNT_OFF,userId);
     }
 
 

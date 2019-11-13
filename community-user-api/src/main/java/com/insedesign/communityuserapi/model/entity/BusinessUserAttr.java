@@ -11,16 +11,16 @@ import lombok.Data;
 @TableName(value = "business_user_attr")
 public class BusinessUserAttr {
     /**
-     * 订单ID
-     */
-    @TableField(value = "b_id")
-    private String bId;
-
-    /**
      * 属性id
      */
     @TableField(value = "attr_id")
     private String attrId;
+
+    /**
+     * 订单ID
+     */
+    @TableField(value = "b_id")
+    private String bId;
 
     /**
      * 用户ID
@@ -52,9 +52,9 @@ public class BusinessUserAttr {
     @TableField(value = "operate")
     private String operate;
 
-    public static final String COL_B_ID = "b_id";
-
     public static final String COL_ATTR_ID = "attr_id";
+
+    public static final String COL_B_ID = "b_id";
 
     public static final String COL_USER_ID = "user_id";
 

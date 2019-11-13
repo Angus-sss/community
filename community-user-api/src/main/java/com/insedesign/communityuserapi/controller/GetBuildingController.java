@@ -3,7 +3,7 @@ package com.insedesign.communityuserapi.controller;
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 21:46
- * @Explain:
+ * @Explain: 外调控制层
  */
 
 public class GetBuildingController {

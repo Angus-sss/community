@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.insedesign.communityuserapi.model.entity.BusinessUserTag">
     <!--@mbg.generated-->
     <!--@Table business_user_tag-->
-    <result column="tag_id" jdbcType="VARCHAR" property="tagId" />
+    <id column="tag_id" jdbcType="INTEGER" property="tagId" />
     <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="tag_cd" jdbcType="VARCHAR" property="tagCd" />
@@ -12,4 +12,8 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="operate" jdbcType="VARCHAR" property="operate" />
   </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    tag_id, b_id, user_id, tag_cd, remark, create_time, operate
+  </sql>
 </mapper>

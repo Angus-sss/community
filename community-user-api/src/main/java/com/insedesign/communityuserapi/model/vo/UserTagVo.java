@@ -1,11 +1,16 @@
 package com.insedesign.communityuserapi.model.vo;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
+ *
  * @author NALHOUG
  */
-public class UserAddressVo {
+@Data
+public class UserTagVo {
+
 
     /**
      * 业务Id
@@ -18,28 +23,19 @@ public class UserAddressVo {
     private String userId;
 
     /**
-     * 电话
+     * 标签编码,参考tag表
      */
-    private String tel;
+    private String tagCd;
 
     /**
-     * 邮政编码
+     * 备注
      */
-    private String postalCode;
-
-    /**
-     * 地址
-     */
-    private String address;
-
-    /**
-     * 是否为默认地址 1，表示默认地址 0 或空不是默认地址
-     */
-    private String isDefault;
+    private String remark;
 
     /**
      * 创建时间
      */
     private Date createTime;
+
 
 }

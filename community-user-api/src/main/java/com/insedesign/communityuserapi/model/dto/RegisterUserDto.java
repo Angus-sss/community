@@ -1,12 +1,9 @@
 package com.insedesign.communityuserapi.model.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
-import java.util.Date;
 
 /**
  * @Author: NALHOUG
@@ -15,12 +12,16 @@ import java.util.Date;
  */
 @Data
 public class RegisterUserDto {
+
     /**
-     * 名称
+     * 用户ID
      */
     @NotNull
-    private String name;
-
+    private String userId;
+    /**
+     * 业务Id
+     */
+    private String bId;
     /**
      * 邮箱地址
      */
@@ -29,35 +30,22 @@ public class RegisterUserDto {
     private String email;
 
     /**
-     * 现居住地址
-     */
-    private String address;
-
-    /**
-     * 用户密码，加密过后
+     * 用户密码
      */
     @NotNull
     private String password;
 
-    /**
-     * 用户地区
-     */
-    private String locationCd;
 
     /**
-     * 用户年龄
+     * 电话，不能为空
      */
-    private Integer age;
+    @NotNull
+    private String tel;
 
     /**
-     * 性别，0表示男孩 1表示女孩
+     * 姓名
      */
-    private String sex;
-
-    /**
-     * 创建时间
-     */
-    @Null
-    private Date createTime;
+    @NotNull
+    private String name;
 
 }

@@ -1,25 +1,28 @@
 package com.insedesign.communityuserapi.common.exception;
 
+import com.insedesign.communityuserapi.common.enmus.ResultCode;
+
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 19:39
- * @Explain:
+ * @Explain: 自定义异常
  */
 public class MessageException extends RuntimeException {
     private static final long serialVersionUID = 3506744187536228284L;
 
-    private String errCode;
+    private Integer errCode;
     private String errMsg;
 
     public MessageException(String errMsg) {
         this.errMsg = errMsg;
     }
 
-    public String getErrCode() {
+
+    public Integer getErrCode() {
         return errCode;
     }
 
-    public void setErrCode(String errCode) {
+    public void setErrCode(Integer errCode) {
         this.errCode = errCode;
     }
 
@@ -31,7 +34,7 @@ public class MessageException extends RuntimeException {
         this.errMsg = errMsg;
     }
 
-    public MessageException(String errCode, String errMsg) {
+    public MessageException(Integer errCode, String errMsg) {
         this.errCode = errCode;
         this.errMsg = errMsg;
     }

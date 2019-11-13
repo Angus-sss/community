@@ -7,18 +7,30 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
+/**
+ * @author NALHOUG
+ */
 @RestController
-@RequestMapping(value = "building")
 public class BuildingRoomController {
     @Resource
     private BuildingRoomService buildingRoomService;
 
+    /**
+     * 获取用户房屋
+     * @param userId
+     * @return
+     */
     @ResponseBody
-    @RequestMapping(value = "test/{userId}",method = RequestMethod.POST)
+    @RequestMapping(value = "building/{userId}",method = RequestMethod.POST)
     public String test(@PathVariable int userId){
         return buildingRoomService.test(userId);
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "room/{userId}",method = RequestMethod.POST)
     public BusinessBuildingRoom getRoom(@PathVariable int userId){

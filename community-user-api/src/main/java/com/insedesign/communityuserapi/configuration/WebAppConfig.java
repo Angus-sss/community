@@ -19,7 +19,10 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
     @Resource
     private LoginInterceptor loginInterceptor;
 
-    //注册拦截器
+    /**
+     * 登录拦截
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
@@ -30,7 +33,7 @@ public class WebAppConfig extends WebMvcConfigurationSupport {
                 //项目启动测试接口
                 .excludePathPatterns("/")
                 //用户登录
-                .excludePathPatterns("/welcome/login")
+                .excludePathPatterns("/login")
                 //用户注册
                 .excludePathPatterns("/register/**");
         super.addInterceptors(registry);

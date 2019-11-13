@@ -1,12 +1,16 @@
 package com.insedesign.communityuserapi.model.vo;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
- * @author NALHOUG
+ * @Author: NALHOUG
+ * @Time: 2019/11/13 19:29
+ * @Explain:
  */
-public class UserAddressVo {
-
+@Data
+public class UserCredentialsVo {
     /**
      * 业务Id
      */
@@ -25,11 +29,13 @@ public class UserAddressVo {
     /**
      * 邮政编码
      */
+
     private String postalCode;
 
     /**
      * 地址
      */
+
     private String address;
 
     /**

@@ -74,5 +74,5 @@ public class UserVo {
     /**
      * 数据状态，添加ADD，修改MOD 删除DEL
      */
-    private String operate;
+    private Integer operate;
 }

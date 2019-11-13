@@ -1,5 +1,6 @@
 package com.insedesign.communityuserapi.service;
 
+import com.insedesign.communityuserapi.model.dto.UserTagDto;
 import com.insedesign.communityuserapi.model.entity.BusinessUserTag;
 
 /**
@@ -8,7 +9,11 @@ import com.insedesign.communityuserapi.model.entity.BusinessUserTag;
  * @Explain:
  */
 public interface BusinessUserTagService {
-    int insert(BusinessUserTag userTag);
+    BusinessUserTag insert(UserTagDto dto);
+
+    int del(String id);
+
+    BusinessUserTag update(UserTagDto dto);
 
     BusinessUserTag selectByUserId(String userId);
 }

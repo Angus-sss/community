@@ -70,6 +70,9 @@ public class BusinessUser {
     @TableField(value = "sex")
     private String sex;
 
+    /**
+     * 电话，不能为空
+     */
     @TableField(value = "tel")
     private String tel;
 
@@ -89,7 +92,7 @@ public class BusinessUser {
      * 数据状态，添加ADD，修改MOD 删除DEL
      */
     @TableField(value = "operate")
-    private String operate;
+    private Integer operate;
 
     public static final String COL_ID = "id";
 

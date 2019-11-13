@@ -38,6 +38,7 @@ public enum ResultCode {
 
     //错误
     PARAM_IS_INVALID(60000, "参数无效"),
+    PARAM_IS_RE(60000, "参数中有已存在的对象"),
     PARAM_IS_NULL(60001, "参数为空"),
     PARAM_TYPE_ERROR(60002, "参数类型错误"),
     PARAM_NOT_COMPLETE(60003, "参数缺失"),

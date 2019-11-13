@@ -1,11 +1,16 @@
-package com.insedesign.communityuserapi.model.vo;
+package com.insedesign.communityuserapi.model.dto;
+
+import lombok.Data;
 
 import java.util.Date;
 
 /**
- * @author NALHOUG
+ * @Author: NALHOUG
+ * @Time: 2019/11/13 14:33
+ * @Explain:
  */
-public class UserAddressVo {
+@Data
+public class UserAddressDto {
 
     /**
      * 业务Id
@@ -42,4 +47,8 @@ public class UserAddressVo {
      */
     private Date createTime;
 
+    /**
+     * 数据状态，添加ADD，修改MOD 删除DEL
+     */
+    private String operate;
 }

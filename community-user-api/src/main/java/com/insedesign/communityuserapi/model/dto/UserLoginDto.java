@@ -1,8 +1,5 @@
 package com.insedesign.communityuserapi.model.dto;
-
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
-
 import javax.validation.constraints.NotNull;
 
 /**
@@ -13,24 +10,14 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserLoginDto {
     /**
-     * 用户ID
+     *统一入口
      */
-    private String userId;
-
-    /**
-     * 名称
-     */
-    private String name;
-
-    /**
-     * 邮箱地址
-     */
-    private String email;
+    @NotNull
+    private String username;
 
     /**
      * 用户密码，加密过后
      */
     @NotNull
     private String password;
-
 }

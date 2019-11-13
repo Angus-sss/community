@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.insedesign.communityuserapi.model.entity.BusinessUserAddress">
     <!--@mbg.generated-->
     <!--@Table business_user_address-->
-    <result column="address_id" jdbcType="VARCHAR" property="addressId" />
+    <id column="address_id" jdbcType="INTEGER" property="addressId" />
     <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
@@ -14,4 +14,8 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="operate" jdbcType="VARCHAR" property="operate" />
   </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    address_id, b_id, user_id, tel, postal_code, address, is_default, create_time, operate
+  </sql>
 </mapper>

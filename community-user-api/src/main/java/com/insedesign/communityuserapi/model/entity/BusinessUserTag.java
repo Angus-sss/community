@@ -13,8 +13,8 @@ public class BusinessUserTag {
     /**
      * 打标ID
      */
-    @TableField(value = "tag_id")
-    private String tagId;
+    @TableId(value = "tag_id", type = IdType.AUTO)
+    private Integer tagId;
 
     /**
      * 业务Id

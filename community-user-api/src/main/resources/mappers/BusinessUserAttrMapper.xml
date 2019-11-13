@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="com.insedesign.communityuserapi.model.entity.BusinessUserAttr">
     <!--@mbg.generated-->
     <!--@Table business_user_attr-->
-    <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="attr_id" jdbcType="VARCHAR" property="attrId" />
+    <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="spec_cd" jdbcType="VARCHAR" property="specCd" />
     <result column="value" jdbcType="VARCHAR" property="value" />

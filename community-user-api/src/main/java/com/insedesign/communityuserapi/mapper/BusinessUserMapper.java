@@ -5,14 +5,23 @@ import com.insedesign.communityuserapi.model.entity.BusinessUser;
 
 public interface BusinessUserMapper extends BaseMapper<BusinessUser> {
 
-    BusinessUser selectByName(String name);
+    BusinessUser selectByUserId(String userId);
 
 
     BusinessUser selectByEmail(String email);
 
 
-    int checkName(String name);
+    BusinessUser selectByTel(String tel);
+
+
+    int checkUserId(String userId);
 
 
     int checkEmail(String email);
+
+    int checkTel(String tel);
+
+    int offAccount(Integer operate,String userId);
+
+
 }

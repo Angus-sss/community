@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 21:46
- * @Explain:
+ * @Explain: 用户注册入口
  */
 
 @RestController
@@ -42,8 +42,8 @@ public class RegisterController {
     public Resp register(RegisterUserDto userDto , HttpServletRequest request){
         Resp resp = new Resp();
         //名字查重
-        if (0 < userService.checkName(userDto.getName())){
-            resp.setResultCode(ResultCode.HAS_EXISTED);
+        if (0 < userService.checkUserId(userDto.getUserId())+userService.checkTel(userDto.getTel())+userService.checkEmail(userDto.getEmail())){
+            resp.setResultCode(ResultCode.PARAM_IS_RE);
             return resp;
         }
         //根据影响行数做进一步处理
@@ -51,35 +51,15 @@ public class RegisterController {
             resp.setResultCode(ResultCode.ACCOUNT_REGISTER_ERROR);
             return resp;
         }
-        //获取当前用户id
-        String userId = userService.selectByName(userDto.getName()).getUserId();
-
-        //创建关联数据
-        BusinessUserAddress newUserAddress = new BusinessUserAddress();
-        newUserAddress.setUserId(userId);
-        userAddressService.insert(newUserAddress);
-
-        BusinessUserAttr newUserAttr = new BusinessUserAttr();
-        newUserAddress.setUserId(userId);
-        userAttrService.insert(newUserAttr);
-
-        BusinessUserCredentials newUserCredentials = new BusinessUserCredentials();
-        newUserAddress.setUserId(userId);
-        userCredentialsService.insert(newUserCredentials);
-
-        BusinessUserTag newUserTag = new BusinessUserTag();
-        newUserTag.setUserId(userId);
-        userTagService.insert(newUserTag);
-
         resp.setResultCode(ResultCode.ACCOUNT_REGISTER_SUCCESS);
         return resp;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/checkUsername", method = RequestMethod.POST)
-    public Resp checkUsername(String username, HttpServletRequest request) {
+    @RequestMapping(value = "/checkUserId", method = RequestMethod.POST)
+    public Resp checkUsername(String userId) {
         Resp resp = new Resp();
-        if (0 < userService.checkName(username)) {
+        if (0 < userService.checkUserId(userId)) {
             resp.setResultCode(ResultCode.ACCOUNT_HAS_USERNAME);
             return resp;
         }
@@ -90,10 +70,23 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping(value = "/checkEmail", method = RequestMethod.POST)
-    public Resp checkEmail(String email, HttpServletRequest request) {
+    public Resp checkEmail(String email) {
         Resp resp = new Resp();
         if (0 < userService.checkEmail(email)) {
-            resp.setResultCode(ResultCode.HAS_EXISTED);
+            resp.setResultCode(ResultCode.ACCOUNT_HAS_EMAIL);
+            return resp;
+        }
+        resp.setResultCode(ResultCode.SUCCESS);
+        return resp;
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/checkTel", method = RequestMethod.POST)
+    public Resp checkTel(String tel) {
+        Resp resp = new Resp();
+        if (0 < userService.checkEmail(tel)) {
+            resp.setResultCode(ResultCode.ACCOUNT_HAS_PHONE);
             return resp;
         }
         resp.setResultCode(ResultCode.SUCCESS);

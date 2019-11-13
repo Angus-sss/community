@@ -16,13 +16,20 @@ public interface BusinessUserService {
 
     int insert(RegisterUserDto user);
 
-    BusinessUser selectByName(String username);
+
+    BusinessUser selectByUserId(String userId);
 
     BusinessUser selectByEmail(String email);
 
-    int checkName(String username);
+    BusinessUser selectByTel(String tel);
 
     int checkEmail(String email);
 
+    int checkTel(String tel);
+
+    int checkUserId(String userId);
+
     int updateUser(UpdateUserDto updateUserDto);
+
+    int offAccount(String userId);
 }

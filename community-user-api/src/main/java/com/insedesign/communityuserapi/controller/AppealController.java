@@ -12,28 +12,32 @@ import javax.annotation.Resource;
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 21:46
- * @Explain:
+ * @Explain: 账号申诉入口
  */
 @RestController
 @RequestMapping(value = "/appeal ")
 public class AppealController {
+
     @Resource
     private BusinessUserService userService;
-
-
-
+    /**
+     * 忘记密码
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/pwd",method = RequestMethod.POST)
     public Resp forgotPwd(){
-        Resp resp = new Resp();
-        return resp;
+        return new Resp();
     }
 
+    /**
+     * 申诉账号
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/account",method = RequestMethod.POST)
     public Resp appealAccount(){
-        Resp resp = new Resp();
-        return resp;
+        return new Resp();
     }
 
 

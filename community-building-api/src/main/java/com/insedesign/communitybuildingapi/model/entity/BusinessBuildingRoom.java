@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
 
+/**
+ * @author NALHOUG
+ */
 @Data
 @TableName(value = "business_building_room")
 public class BusinessBuildingRoom {

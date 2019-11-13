@@ -1,5 +1,6 @@
 package com.insedesign.communityuserapi.service;
 
+import com.insedesign.communityuserapi.model.dto.UserCredentialsDto;
 import com.insedesign.communityuserapi.model.entity.BusinessUserCredentials;
 
 /**
@@ -8,7 +9,11 @@ import com.insedesign.communityuserapi.model.entity.BusinessUserCredentials;
  * @Explain:
  */
 public interface BusinessUserCredentialsService {
-    int insert(BusinessUserCredentials userCredentials);
+    BusinessUserCredentials insert(UserCredentialsDto userCredentialsDto);
+
+    int del(String id);
+
+    BusinessUserCredentials update(UserCredentialsDto userCredentialsDto);
 
     BusinessUserCredentials selectByUserId(String userId);
 }

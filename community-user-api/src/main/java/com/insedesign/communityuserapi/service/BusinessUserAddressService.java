@@ -1,5 +1,6 @@
 package com.insedesign.communityuserapi.service;
 
+import com.insedesign.communityuserapi.model.dto.UserAddressDto;
 import com.insedesign.communityuserapi.model.entity.BusinessUserAddress;
 
 /**
@@ -9,7 +10,11 @@ import com.insedesign.communityuserapi.model.entity.BusinessUserAddress;
  */
 public interface BusinessUserAddressService {
 
-    int insert(BusinessUserAddress userAddress);
+    BusinessUserAddress insert(UserAddressDto userAddressDto);
+
+    int del(String id);
+
+    BusinessUserAddress update(UserAddressDto userAddressDto);
 
     BusinessUserAddress selectByUserId(String userId);
 

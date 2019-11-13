@@ -1,5 +1,6 @@
 package com.insedesign.communityuserapi.service;
 
+import com.insedesign.communityuserapi.model.dto.UserAttrDto;
 import com.insedesign.communityuserapi.model.entity.BusinessUserAttr;
 
 /**
@@ -8,7 +9,11 @@ import com.insedesign.communityuserapi.model.entity.BusinessUserAttr;
  * @Explain:
  */
 public interface BusinessUserAttrService {
-    int insert(BusinessUserAttr userAttr);
+    BusinessUserAttr insert(UserAttrDto userAttrDto);
+
+    int del(String id);
+
+    BusinessUserAttr update(UserAttrDto userAttrDto);
 
     BusinessUserAttr selectByUserId(String userId);
 }

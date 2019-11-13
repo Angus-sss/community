@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 19:39
- * @Explain:
+ * @Explain: 登录拦截器
  */
 @Component
 public class LoginInterceptor implements HandlerInterceptor {

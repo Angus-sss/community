@@ -13,8 +13,8 @@ public class BusinessUserCredentials {
     /**
      * 证件ID
      */
-    @TableField(value = "credentials_id")
-    private String credentialsId;
+    @TableId(value = "credentials_id", type = IdType.AUTO)
+    private Integer credentialsId;
 
     /**
      * 业务Id

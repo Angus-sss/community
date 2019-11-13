@@ -7,14 +7,17 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 import lombok.Data;
 
+/**
+ * @author NALHOUG
+ */
 @Data
 @TableName(value = "business_user_address")
 public class BusinessUserAddress {
     /**
      * 地址ID
      */
-    @TableField(value = "address_id")
-    private String addressId;
+    @TableId(value = "address_id", type = IdType.AUTO)
+    private Integer addressId;
 
     /**
      * 业务Id

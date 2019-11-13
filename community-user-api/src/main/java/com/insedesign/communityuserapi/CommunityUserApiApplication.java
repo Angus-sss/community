@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan("com.insedesign.communityuserapi.mapper")
+@MapperScan(value = "com.insedesign.communityuserapi.mapper")
 public class CommunityUserApiApplication {
 
     public static void main(String[] args) {
