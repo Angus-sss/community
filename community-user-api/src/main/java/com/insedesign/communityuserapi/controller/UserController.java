@@ -56,8 +56,9 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Resp update(UpdateUserDto updateUserDto, HttpServletRequest request){
+        updateUserDto.setId(getSessionAccount.thisAccount(request).getId());
         if (0 < userService.updateUser(updateUserDto)){
-            BusinessUser user = userService.selectById(updateUserDto.getId());
+            BusinessUser user = userService.selectByUserId(getSessionAccount.thisAccount(request).getUserId());
             return Resp.success(user);
         }
         return Resp.error(ResultCode.ERROR);

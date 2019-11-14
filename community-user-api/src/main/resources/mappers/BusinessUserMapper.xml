@@ -70,7 +70,9 @@
     from business_user
     where tel = #{tel,jdbcType=VARCHAR}
   </select>
-  <update id="offAccount">
+
+
+  <update id="offAccount" parameterType="java.lang.Integer">
     update business_user
     set operate = #{operate,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=VARCHAR}

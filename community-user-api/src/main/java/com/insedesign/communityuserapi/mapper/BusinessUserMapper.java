@@ -2,6 +2,7 @@ package com.insedesign.communityuserapi.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.insedesign.communityuserapi.model.entity.BusinessUser;
+import org.apache.ibatis.annotations.Param;
 
 public interface BusinessUserMapper extends BaseMapper<BusinessUser> {
 
@@ -21,7 +22,7 @@ public interface BusinessUserMapper extends BaseMapper<BusinessUser> {
 
     int checkTel(String tel);
 
-    int offAccount(Integer operate,String userId);
+    int offAccount(@Param("operate")Integer operate,@Param("userId") String userId);
 
 
 }

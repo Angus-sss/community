@@ -1,6 +1,7 @@
 package com.insedesign.communityuserapi.common.utils;
 
 import com.insedesign.communityuserapi.common.resp.Base;
+import com.insedesign.communityuserapi.model.entity.BusinessUser;
 import com.insedesign.communityuserapi.model.vo.UserVo;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +19,8 @@ public class GetSessionAccount {
      * @param request
      * @return
      */
-    public UserVo thisAccount(HttpServletRequest request){
-        UserVo user = (UserVo)request.getSession().getAttribute(Base.THIS_USER);
+    public BusinessUser thisAccount(HttpServletRequest request){
+        BusinessUser user = (BusinessUser)request.getSession().getAttribute(Base.THIS_USER);
         return user;
     }
 }

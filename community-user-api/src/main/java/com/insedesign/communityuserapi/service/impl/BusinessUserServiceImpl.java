@@ -73,7 +73,7 @@ public class BusinessUserServiceImpl implements BusinessUserService {
     public int updateUser(UpdateUserDto updateUserDto) {
         BusinessUser user = new BusinessUser();
         BeanUtils.copyProperties(updateUserDto,user);
-        return   userMapper.update(user,null);
+        return   userMapper.updateById(user);
     }
 
     @Override
