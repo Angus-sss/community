@@ -22,6 +22,12 @@
             <optional>true</optional>
             <version>1.18.10</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>2.0.1</version>
+            <scope>compile</scope>
+        </dependency>
         <!--mybatis-plus-->
     </dependencies>
 

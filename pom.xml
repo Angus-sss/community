@@ -16,10 +16,10 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>community-user-api</module>
-        <module>community-building-api</module>
+        <module>community-admin</module>
+        <module>community-building</module>
         <module>community-common-api</module>
-        <module>community-district-api</module>
+        <module>community-index</module>
     </modules>
     <!--版本管理-->
     <properties>

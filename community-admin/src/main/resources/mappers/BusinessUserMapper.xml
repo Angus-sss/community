@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insedesign.communityadmin.mapper.BusinessUserMapper">
+  <resultMap id="BaseResultMap" type="com.insedesign.communityadmin.model.entity.BusinessUser">
+    <!--@mbg.generated-->
+    <!--@Table business_user-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="b_id" jdbcType="VARCHAR" property="bId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="location_cd" jdbcType="VARCHAR" property="locationCd" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="level_cd" jdbcType="VARCHAR" property="levelCd" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operate" jdbcType="INTEGER" property="operate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, b_id, user_id, `name`, email, address, `password`, location_cd, age, sex, tel, 
+    level_cd, create_time, operate
+  </sql>
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByEmail" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByTel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where tel = #{tel,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByBId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from business_user
+    where b_id = #{bId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkUserId" resultType="java.lang.Integer">
+    select count(user_id)
+    from business_user
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+
+  <select id="checkEmail" resultType="java.lang.Integer">
+    select count(email)
+    from business_user
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkTel" resultType="java.lang.Integer">
+    select count(tel)
+    from business_user
+    where tel = #{tel,jdbcType=VARCHAR}
+  </select>
+
+
+  <update id="offAccount" parameterType="java.lang.Integer">
+    update business_user
+    set operate = #{operate,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+
+
+</mapper>
