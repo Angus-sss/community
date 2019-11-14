@@ -9,6 +9,7 @@ import com.insedesign.communityuserapi.model.dto.UpdateUserDto;
 import com.insedesign.communityuserapi.model.entity.*;
 import com.insedesign.communityuserapi.model.vo.UserVo;
 import com.insedesign.communityuserapi.service.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -59,7 +60,9 @@ public class UserController {
         updateUserDto.setId(getSessionAccount.thisAccount(request).getId());
         if (0 < userService.updateUser(updateUserDto)){
             BusinessUser user = userService.selectByUserId(getSessionAccount.thisAccount(request).getUserId());
-            return Resp.success(user);
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user,userVo);
+            return Resp.success(userVo);
         }
         return Resp.error(ResultCode.ERROR);
     }
