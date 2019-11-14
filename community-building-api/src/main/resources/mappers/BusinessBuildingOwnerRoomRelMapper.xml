@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.insedesign.communitybuildingapi.mapper.BusinessBuildingOwnerRoomRelMapper">
-  <resultMap id="BaseResultMap" type="com.insedesign.communitybuildingapi.model.entity.BusinessBuildingOwnerRoomRel">
+  <resultMap id="BaseResultMap" type="com.insedesign.communitybuildingapi.model.BusinessBuildingOwnerRoomRel">
     <!--@mbg.generated-->
     <!--@Table business_building_owner_room_rel-->
     <result column="rel_id" jdbcType="VARCHAR" property="relId" />

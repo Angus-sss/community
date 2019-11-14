@@ -18,6 +18,7 @@
     <modules>
         <module>community-user-api</module>
         <module>community-building-api</module>
+        <module>community-common-api</module>
     </modules>
     <!--版本管理-->
     <properties>

@@ -1,8 +1,6 @@
 package com.insedesign.communityuserapi.model.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+
 import lombok.Data;
 
 import java.util.Date;
@@ -17,31 +15,26 @@ public class UserVo {
     /**
      * 业务Id
      */
-    @TableField(value = "b_id")
     private String bId;
 
     /**
      * 用户ID
      */
-    @TableField(value = "user_id")
     private String userId;
 
     /**
      * 名称
      */
-    @TableField(value = "name")
     private String name;
 
     /**
      * 邮箱地址
      */
-    @TableField(value = "email")
     private String email;
 
     /**
      * 现居住地址
      */
-    @TableField(value = "address")
     private String address;
 
     /**

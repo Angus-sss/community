@@ -1,10 +1,8 @@
 package com.insedesign.communityuserapi.model.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+
 import lombok.Data;
 
-import java.util.Date;
 
 @Data
 public class UserAttrDto {

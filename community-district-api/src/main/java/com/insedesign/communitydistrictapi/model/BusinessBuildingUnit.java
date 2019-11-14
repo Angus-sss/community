@@ -1,4 +1,4 @@
-package com.insedesign.communitybuildingapi.model.entity;
+package com.insedesign.communitydistrictapi.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -7,29 +7,14 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 import lombok.Data;
 
-/**
- * @author NALHOUG
- */
 @Data
-@TableName(value = "business_building_owner_room_rel")
-public class BusinessBuildingOwnerRoomRel {
+@TableName(value = "business_building_unit")
+public class BusinessBuildingUnit {
     /**
-     * 关系ID
+     * 单元ID
      */
-    @TableField(value = "rel_id")
-    private String relId;
-
-    /**
-     * 业主ID
-     */
-    @TableField(value = "owner_id")
-    private String ownerId;
-
-    /**
-     * 房间ID
-     */
-    @TableField(value = "room_id")
-    private String roomId;
+    @TableField(value = "unit_id")
+    private String unitId;
 
     /**
      * 业务Id
@@ -38,10 +23,28 @@ public class BusinessBuildingOwnerRoomRel {
     private String bId;
 
     /**
-     * 业务状态  2001 业主未迁入 2002 业主迁入 2003 业主迁出
+     * 单元编号
      */
-    @TableField(value = "state")
-    private String state;
+    @TableField(value = "unit_num")
+    private String unitNum;
+
+    /**
+     * 楼ID
+     */
+    @TableField(value = "floor_id")
+    private String floorId;
+
+    /**
+     * 总层数
+     */
+    @TableField(value = "layer_count")
+    private Integer layerCount;
+
+    /**
+     * 是否有电梯 1010有 2020 无
+     */
+    @TableField(value = "lift")
+    private String lift;
 
     /**
      * 用户ID
@@ -67,15 +70,17 @@ public class BusinessBuildingOwnerRoomRel {
     @TableField(value = "operate")
     private String operate;
 
-    public static final String COL_REL_ID = "rel_id";
-
-    public static final String COL_OWNER_ID = "owner_id";
-
-    public static final String COL_ROOM_ID = "room_id";
+    public static final String COL_UNIT_ID = "unit_id";
 
     public static final String COL_B_ID = "b_id";
 
-    public static final String COL_STATE = "state";
+    public static final String COL_UNIT_NUM = "unit_num";
+
+    public static final String COL_FLOOR_ID = "floor_id";
+
+    public static final String COL_LAYER_COUNT = "layer_count";
+
+    public static final String COL_LIFT = "lift";
 
     public static final String COL_USER_ID = "user_id";
 

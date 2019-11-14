@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Author: NALHOUG
@@ -27,6 +28,11 @@ public class BusinessUserTagServiceImpl implements BusinessUserTagService {
             return selectByUserId(userTagDto.getUserId());
         }
         return null;
+    }
+
+    @Override
+    public List<BusinessUserTag> selectList(String userId) {
+        return userTagMapper.selectList(null);
     }
 
     @Override

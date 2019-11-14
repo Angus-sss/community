@@ -2,32 +2,73 @@ package com.insedesign.communitybuildingapi.common.exception;
 
 import com.insedesign.communitybuildingapi.common.enmus.ResultCode;
 import com.insedesign.communitybuildingapi.common.resp.Resp;
-import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
-
 
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 19:39
- * @Explain:
+ * @Explain: 全局异常
  */
-@Component
+@Slf4j
+@ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(Exception.class)
-    public Resp handleException(Exception e, HttpServletRequest request) {
-        Resp resp = new Resp();
-        resp.setCode(ResultCode.SYSTEM_INNER_ERROR.code());
-        resp.setMsg(e.getMessage());
-        return resp;
-    }
+    /**
+     * 自定义异常
+     * @param e
+     * @param request
+     * @return
+     */
+    @ResponseBody
     @ExceptionHandler(MessageException.class)
     public Resp handleLoginException(MessageException e, HttpServletRequest request) {
         Resp resp = new Resp();
-        Resp.error(ResultCode.PARAM_IS_INVALID);
-        resp.setMsg(e.getMessage());
+        log.info("自定义异常");
+        resp.setCode(e.getErrCode());
+        resp.setMsg(e.getErrMsg());
         return resp;
     }
+
+    /**
+     * 数据操作格式异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = DataIntegrityViolationException.class)
+    @ResponseBody
+    public Resp requestExceptionHandler(DataIntegrityViolationException e){
+        log.error("数据操作格式异常:",e);
+        return Resp.error(ResultCode.PARAM_TYPE_ERROR);
+    }
+
+    /**
+     * 空指针异常
+     * @param req
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value =NullPointerException.class)
+    @ResponseBody
+    public Resp exceptionHandler(HttpServletRequest req, NullPointerException e){
+        log.error("空指针异常:",e);
+        return Resp.error(ResultCode.PARAM_IS_NULL);
+    }
+    /**
+     * 其他异常
+     * @param e
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @ExceptionHandler(Exception.class)
+    public Resp handleException(Exception e, HttpServletRequest request) {
+        log.error("系统错误:",e);
+        return Resp.error(ResultCode.SYSTEM_INNER_ERROR);
+    }
+
 
 }
