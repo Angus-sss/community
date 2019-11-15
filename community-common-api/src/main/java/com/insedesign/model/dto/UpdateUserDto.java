@@ -2,10 +2,6 @@ package com.insedesign.model.dto;
 
 
 import lombok.Data;
-
-import javax.validation.constraints.Email;
-
-
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/7 21:52

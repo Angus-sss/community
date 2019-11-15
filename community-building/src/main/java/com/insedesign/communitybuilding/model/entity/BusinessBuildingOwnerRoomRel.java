@@ -4,19 +4,20 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+/**
+ * @author NALHOUG
+ */
 @Data
 @TableName(value = "business_building_owner_room_rel")
-public class BusinessBuildingOwnerRoomRel {
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-
+public class BusinessBuildingOwnerRoomRel implements Serializable {
     /**
      * 关系ID
      */
-    @TableField(value = "rel_id")
+    @TableId(value = "rel_id", type = IdType.INPUT)
     private String relId;
 
     /**
@@ -56,18 +57,18 @@ public class BusinessBuildingOwnerRoomRel {
     private Date createTime;
 
     /**
-     * 数据状态，添加ADD，修改MOD 删除DEL
+     * 业务状态  2001 业主未迁入 2002 业主迁入 2003 业主迁出
      */
     @TableField(value = "operate")
     private String operate;
 
     /**
-     * 业务状态  2001 业主未迁入 2002 业主迁入 2003 业主迁出
+     * 0为删除 1为存在
      */
     @TableField(value = "state")
     private Integer state;
 
-    public static final String COL_ID = "id";
+    private static final long serialVersionUID = 1L;
 
     public static final String COL_REL_ID = "rel_id";
 

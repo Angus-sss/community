@@ -5,10 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.communitybuilding.model.entity.BusinessBuildingRoom;
-import com.insedesign.communitybuilding.common.enmus.ResultCode;
-import com.insedesign.communitybuilding.common.resp.Base;
-import com.insedesign.communitybuilding.common.resp.Resp;
 import com.insedesign.communitybuilding.service.BusinessBuildingRoomService;
+import com.insedesign.enmus.Base;
+import com.insedesign.enmus.ResultCode;
+import com.insedesign.resp.Resp;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,20 +20,21 @@ import java.util.List;
  * @author NALHOUG
  */
 @RestController
+@RequestMapping("/room")
 public class BuildingRoomController {
     @Resource
-    private BusinessBuildingRoomService buildingRoomService;
+    private BusinessBuildingRoomService service;
 
     /**
      * 增加
-     * @param buildingRoom
+     * @param entity
      * @return
      */
     @ResponseBody
     @PostMapping("/add")
-    public Resp add(BusinessBuildingRoom buildingRoom){
-        if (buildingRoomService.save(buildingRoom)) {
-            return Resp.success(buildingRoomService.getById(buildingRoom.getRoomId()));
+    public Resp add(BusinessBuildingRoom entity){
+        if (service.save(entity)) {
+            return Resp.success(service.getById(entity.getRoomId()));
         }
         return Resp.error(ResultCode.ERROR);
     }
@@ -48,7 +49,7 @@ public class BuildingRoomController {
         if (null==roomId){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingRoomService.getById(roomId));
+        return Resp.success(service.getById(roomId));
     }
     /**
      * 根据单元找
@@ -61,7 +62,9 @@ public class BuildingRoomController {
         if (null==unitId){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingRoomService.selectByUniId(unitId));
+        QueryWrapper<BusinessBuildingRoom> businessBuildingRoomQueryWrapper = new QueryWrapper<>();
+        businessBuildingRoomQueryWrapper.eq(BusinessBuildingRoom.COL_UNIT_ID,unitId);
+        return Resp.success(service.getOne(businessBuildingRoomQueryWrapper));
     }
     /**
      * 查询所有
@@ -75,7 +78,7 @@ public class BuildingRoomController {
         QueryWrapper<BusinessBuildingRoom> queryWrapper = new QueryWrapper<>();
         //查询状态为正常的数据
         queryWrapper.eq(BusinessBuildingRoom.COL_STATE, Base.IS_OK);
-        return Resp.success(buildingRoomService.list(queryWrapper));
+        return Resp.success(service.list(queryWrapper));
     }
     /**
      * 分页查询
@@ -92,7 +95,7 @@ public class BuildingRoomController {
         page.setSize(pageSize);
         //查询状态为正常的数据
         queryWrapper.eq(BusinessBuildingRoom.COL_STATE, Base.IS_OK);
-        IPage<BusinessBuildingRoom> roomPage = buildingRoomService.page(page,queryWrapper);
+        IPage<BusinessBuildingRoom> roomPage = service.page(page,queryWrapper);
         return Resp.success(roomPage.getRecords());
     }
 
@@ -111,12 +114,12 @@ public class BuildingRoomController {
         QueryWrapper<BusinessBuildingRoom> queryWrapper = new QueryWrapper<>();
         for(String item : roomIds) {
             //查询数据
-            BusinessBuildingRoom businessBuildingRoom = buildingRoomService.getById(item);
+            BusinessBuildingRoom businessBuildingRoom = service.getById(item);
             //设置状态为删除
             businessBuildingRoom.setState(Base.IS_DEL);
             //更新数据
             queryWrapper.eq(BusinessBuildingRoom.COL_ROOM_ID,item);
-            buildingRoomService.update(queryWrapper);
+            service.update(queryWrapper);
         }
         return Resp.success();
     }
@@ -128,10 +131,10 @@ public class BuildingRoomController {
      */
     @ResponseBody
     @PostMapping("/update")
-    public Resp update(BusinessBuildingRoom buildingRoom , HttpServletRequest request){
-        if (null==buildingRoom){
+    public Resp update(BusinessBuildingRoom entity , HttpServletRequest request){
+        if (null==entity){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingRoomService.updateById(buildingRoom));
+        return Resp.success(service.updateById(entity));
     }
 }

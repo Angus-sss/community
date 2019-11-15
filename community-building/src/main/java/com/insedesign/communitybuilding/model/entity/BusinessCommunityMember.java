@@ -4,16 +4,17 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 @Data
 @TableName(value = "business_community_member")
-public class BusinessCommunityMember {
+public class BusinessCommunityMember implements Serializable {
     /**
      * ID
      */
-    @TableField(value = "community_member_id")
+    @TableId(value = "community_member_id", type = IdType.INPUT)
     private String communityMemberId;
 
     /**
@@ -64,6 +65,14 @@ public class BusinessCommunityMember {
     @TableField(value = "audit_status_cd")
     private String auditStatusCd;
 
+    /**
+     * 0为删除  1为存在
+     */
+    @TableField(value = "state")
+    private Integer state;
+
+    private static final long serialVersionUID = 1L;
+
     public static final String COL_COMMUNITY_MEMBER_ID = "community_member_id";
 
     public static final String COL_B_ID = "b_id";
@@ -81,4 +90,6 @@ public class BusinessCommunityMember {
     public static final String COL_OPERATE = "operate";
 
     public static final String COL_AUDIT_STATUS_CD = "audit_status_cd";
+
+    public static final String COL_STATE = "state";
 }

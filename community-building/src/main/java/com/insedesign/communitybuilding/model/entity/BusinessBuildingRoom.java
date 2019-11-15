@@ -4,20 +4,20 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
-
+/**
+ * @author NALHOUG
+ */
 @Data
 @TableName(value = "business_building_room")
-public class BusinessBuildingRoom {
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-
+public class BusinessBuildingRoom implements Serializable {
     /**
      * 房屋ID
      */
-    @TableField(value = "room_id")
+    @TableId(value = "room_id", type = IdType.INPUT)
     private String roomId;
 
     /**
@@ -93,12 +93,12 @@ public class BusinessBuildingRoom {
     private String operate;
 
     /**
-     * 房屋状态，如房屋出售等，请查看state 表
+     * 0为删除 1 为存在
      */
     @TableField(value = "state")
     private Integer state;
 
-    public static final String COL_ID = "id";
+    private static final long serialVersionUID = 1L;
 
     public static final String COL_ROOM_ID = "room_id";
 

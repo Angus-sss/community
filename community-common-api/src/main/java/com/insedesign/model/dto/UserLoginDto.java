@@ -1,7 +1,6 @@
 package com.insedesign.model.dto;
 
 import lombok.Data;
-
 import javax.validation.constraints.NotNull;
 
 /**

@@ -10,15 +10,16 @@
     </parent>
     <groupId>com.insedesign</groupId>
     <artifactId>community</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
     <name>community</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>community-admin</module>
+        <module>community-user</module>
         <module>community-building</module>
         <module>community-common-api</module>
+        <module>community-car</module>
         <module>community-index</module>
     </modules>
     <!--版本管理-->

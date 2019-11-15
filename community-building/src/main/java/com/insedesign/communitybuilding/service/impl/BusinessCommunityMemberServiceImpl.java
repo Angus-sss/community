@@ -10,3 +10,4 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 public class BusinessCommunityMemberServiceImpl extends ServiceImpl<BusinessCommunityMemberMapper, BusinessCommunityMember> implements BusinessCommunityMemberService {
 
 }
+

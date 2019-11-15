@@ -3,11 +3,11 @@ package com.insedesign.communitybuilding.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.insedesign.communitybuilding.common.enmus.ResultCode;
 import com.insedesign.communitybuilding.model.entity.BusinessBuildingOwnerRoomRel;
-import com.insedesign.communitybuilding.common.resp.Base;
-import com.insedesign.communitybuilding.common.resp.Resp;
 import com.insedesign.communitybuilding.service.BusinessBuildingOwnerRoomRelService;
+import com.insedesign.enmus.Base;
+import com.insedesign.enmus.ResultCode;
+import com.insedesign.resp.Resp;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,20 +21,21 @@ import java.util.List;
  * @Explain:
  */
 @RestController
+@RequestMapping("/orr")
 public class BuildingOwnerRoomRelController {
     @Resource
-    private BusinessBuildingOwnerRoomRelService buildingOwnerRoomRelService;
+    private BusinessBuildingOwnerRoomRelService entityService;
 
     /**
      * 增加
-     * @param buildingOwnerRoomRel
+     * @param entity
      * @return
      */
     @ResponseBody
     @PostMapping("/add")
-    public Resp add(BusinessBuildingOwnerRoomRel buildingOwnerRoomRel){
-        if (buildingOwnerRoomRelService.save(buildingOwnerRoomRel)) {
-            return Resp.success(buildingOwnerRoomRelService.getById(buildingOwnerRoomRel.getRoomId()));
+    public Resp add(BusinessBuildingOwnerRoomRel entity){
+        if (entityService.save(entity)) {
+            return Resp.success(entityService.getById(entity.getRoomId()));
         }
         return Resp.error(ResultCode.ERROR);
     }
@@ -49,7 +50,7 @@ public class BuildingOwnerRoomRelController {
         if (null==relId){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingOwnerRoomRelService.getById(relId));
+        return Resp.success(entityService.getById(relId));
     }
 
     /**
@@ -64,7 +65,7 @@ public class BuildingOwnerRoomRelController {
         QueryWrapper<BusinessBuildingOwnerRoomRel> queryWrapper = new QueryWrapper<>();
         //查询状态为正常的数据
         queryWrapper.eq(BusinessBuildingOwnerRoomRel.COL_STATE, Base.IS_OK);
-        return Resp.success(buildingOwnerRoomRelService.list(queryWrapper));
+        return Resp.success(entityService.list(queryWrapper));
     }
     /**
      * 分页查询
@@ -81,7 +82,7 @@ public class BuildingOwnerRoomRelController {
         page.setSize(pageSize);
         //查询状态为正常的数据
         queryWrapper.eq(BusinessBuildingOwnerRoomRel.COL_STATE, Base.IS_OK);
-        IPage<BusinessBuildingOwnerRoomRel> relPage = buildingOwnerRoomRelService.page(page,queryWrapper);
+        IPage<BusinessBuildingOwnerRoomRel> relPage = entityService.page(page,queryWrapper);
         return Resp.success(relPage.getRecords());
     }
 
@@ -100,12 +101,12 @@ public class BuildingOwnerRoomRelController {
         QueryWrapper<BusinessBuildingOwnerRoomRel> queryWrapper = new QueryWrapper<>();
         for(String item : relIds) {
             //查询数据
-            BusinessBuildingOwnerRoomRel businessBuildingRoom = buildingOwnerRoomRelService.getById(item);
+            BusinessBuildingOwnerRoomRel businessBuildingRoom = entityService.getById(item);
             //设置状态为删除
             businessBuildingRoom.setState(Base.IS_DEL);
             //更新数据
             queryWrapper.eq(BusinessBuildingOwnerRoomRel.COL_REL_ID,item);
-            buildingOwnerRoomRelService.update(queryWrapper);
+            entityService.update(queryWrapper);
         }
         return Resp.success();
     }
@@ -117,10 +118,10 @@ public class BuildingOwnerRoomRelController {
      */
     @ResponseBody
     @PostMapping("/update")
-    public Resp update(BusinessBuildingOwnerRoomRel buildingOwnerRoomRel , HttpServletRequest request){
-        if (null==buildingOwnerRoomRel){
+    public Resp update(BusinessBuildingOwnerRoomRel entity , HttpServletRequest request){
+        if (null==entity){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingOwnerRoomRelService.updateById(buildingOwnerRoomRel));
+        return Resp.success(entityService.updateById(entity));
     }
 }

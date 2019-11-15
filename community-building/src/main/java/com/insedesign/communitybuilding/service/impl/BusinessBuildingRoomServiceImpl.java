@@ -11,14 +11,9 @@ import javax.annotation.Resource;
 
 @Service
 public class BusinessBuildingRoomServiceImpl extends ServiceImpl<BusinessBuildingRoomMapper, BusinessBuildingRoom> implements BusinessBuildingRoomService {
-    @Resource
-    BusinessBuildingRoomMapper buildingRoomMapper;
 
-    @Override
-    public BusinessBuildingRoom selectByUniId(String unitId) {
-        return buildingRoomMapper.selectByUniId(unitId);
-    }
 }
+
 
 
 

@@ -4,26 +4,27 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+/**
+ * @author NALHOUG
+ */
 @Data
 @TableName(value = "business_building_owner")
-public class BusinessBuildingOwner {
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+public class BusinessBuildingOwner implements Serializable {
+    /**
+     * 业主ID
+     */
+    @TableId(value = "owner_id", type = IdType.INPUT)
+    private String ownerId;
 
     /**
      * 业主成员ID
      */
     @TableField(value = "member_id")
     private String memberId;
-
-    /**
-     * 业主ID
-     */
-    @TableField(value = "owner_id")
-    private String ownerId;
 
     /**
      * 业务Id
@@ -74,7 +75,7 @@ public class BusinessBuildingOwner {
     private Date createTime;
 
     /**
-     * 数据状态，添加ADD，修改MOD 删除DEL
+     * 业主状态
      */
     @TableField(value = "operate")
     private String operate;
@@ -85,14 +86,17 @@ public class BusinessBuildingOwner {
     @TableField(value = "owner_type_cd")
     private String ownerTypeCd;
 
+    /**
+     * 0为 删除  1为存在
+     */
     @TableField(value = "state")
     private Integer state;
 
-    public static final String COL_ID = "id";
-
-    public static final String COL_MEMBER_ID = "member_id";
+    private static final long serialVersionUID = 1L;
 
     public static final String COL_OWNER_ID = "owner_id";
+
+    public static final String COL_MEMBER_ID = "member_id";
 
     public static final String COL_B_ID = "b_id";
 

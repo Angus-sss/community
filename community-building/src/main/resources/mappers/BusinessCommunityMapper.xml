@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.insedesign.communitybuilding.model.entity.BusinessCommunity">
     <!--@mbg.generated-->
     <!--@Table business_community-->
-    <id column="community_id" jdbcType="INTEGER" property="communityId" />
+    <id column="community_id" jdbcType="VARCHAR" property="communityId" />
     <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="address" jdbcType="VARCHAR" property="address" />
@@ -15,10 +15,11 @@
     <result column="month" jdbcType="INTEGER" property="month" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="operate" jdbcType="VARCHAR" property="operate" />
+    <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     community_id, b_id, `name`, address, city_code, nearby_landmarks, map_x, map_y, `month`, 
-    create_time, operate
+    create_time, operate, `state`
   </sql>
 </mapper>

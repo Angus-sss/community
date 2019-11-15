@@ -4,8 +4,7 @@
   <resultMap id="BaseResultMap" type="com.insedesign.communitybuilding.model.entity.BusinessBuildingRoom">
     <!--@mbg.generated-->
     <!--@Table business_building_room-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="room_id" jdbcType="VARCHAR" property="roomId" />
+    <id column="room_id" jdbcType="VARCHAR" property="roomId" />
     <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="room_num" jdbcType="VARCHAR" property="roomNum" />
     <result column="unit_id" jdbcType="VARCHAR" property="unitId" />
@@ -22,8 +21,8 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, room_id, b_id, room_num, unit_id, layer, `section`, apartment, built_up_area, 
-    unit_price, user_id, remark, create_time, operate, `state`
+    room_id, b_id, room_num, unit_id, layer, `section`, apartment, built_up_area, unit_price, 
+    user_id, remark, create_time, operate, `state`
   </sql>
     <select id="selectByUniId" resultMap="BaseResultMap">
       select

@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.communitybuilding.model.entity.BusinessBuildingOwner;
-import com.insedesign.communitybuilding.common.enmus.ResultCode;
-import com.insedesign.communitybuilding.common.resp.Base;
-import com.insedesign.communitybuilding.common.resp.Resp;
 import com.insedesign.communitybuilding.service.BusinessBuildingOwnerService;
+import com.insedesign.enmus.Base;
+import com.insedesign.enmus.ResultCode;
+import com.insedesign.resp.Resp;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
@@ -20,20 +20,22 @@ import java.util.List;
  * @Explain:
  */
 @RestController
+@RequestMapping("/owner")
 public class BuildingOwnerController {
     @Resource
-    private BusinessBuildingOwnerService buildingOwnerService;
+    private BusinessBuildingOwnerService entityService;
 
     /**
      * 增加
-     * @param buildingOwner
+     * @param entity
      * @return
      */
     @ResponseBody
     @PostMapping("/add")
-    public Resp add(BusinessBuildingOwner buildingOwner){
-        if (buildingOwnerService.save(buildingOwner)) {
-            return Resp.success(buildingOwnerService.getById(buildingOwner.getOwnerId()));
+    public Resp add(BusinessBuildingOwner entity){
+
+        if (entityService.save(entity)) {
+            return Resp.success(entityService.getById(entity.getOwnerId()));
         }
         return Resp.error(ResultCode.ERROR);
     }
@@ -48,7 +50,7 @@ public class BuildingOwnerController {
         if (null==ownerId){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingOwnerService.getById(ownerId));
+        return Resp.success(entityService.getById(ownerId));
     }
    
     /**
@@ -63,7 +65,7 @@ public class BuildingOwnerController {
         QueryWrapper<BusinessBuildingOwner> queryWrapper = new QueryWrapper<>();
         //查询状态为正常的数据
         queryWrapper.eq(BusinessBuildingOwner.COL_STATE, Base.IS_OK);
-        return Resp.success(buildingOwnerService.list(queryWrapper));
+        return Resp.success(entityService.list(queryWrapper));
     }
     /**
      * 分页查询
@@ -80,7 +82,7 @@ public class BuildingOwnerController {
         page.setSize(pageSize);
         //查询状态为正常的数据
         queryWrapper.eq(BusinessBuildingOwner.COL_STATE, Base.IS_OK);
-        IPage<BusinessBuildingOwner> ownerPage = buildingOwnerService.page(page,queryWrapper);
+        IPage<BusinessBuildingOwner> ownerPage = entityService.page(page,queryWrapper);
         return Resp.success(ownerPage.getRecords());
     }
 
@@ -99,12 +101,12 @@ public class BuildingOwnerController {
         QueryWrapper<BusinessBuildingOwner> queryWrapper = new QueryWrapper<>();
         for(String item : ownerIds) {
             //查询数据
-            BusinessBuildingOwner BusinessBuildingOwner = buildingOwnerService.getById(item);
+            BusinessBuildingOwner entity = entityService.getById(item);
             //设置状态为删除
-            BusinessBuildingOwner.setState(Base.IS_DEL);
+            entity.setState(Base.IS_DEL);
             //更新数据
             queryWrapper.eq(BusinessBuildingOwner.COL_OWNER_ID,item);
-            buildingOwnerService.update(queryWrapper);
+            entityService.update(queryWrapper);
         }
         return Resp.success();
     }
@@ -116,11 +118,11 @@ public class BuildingOwnerController {
      */
     @ResponseBody
     @PostMapping("/update")
-    public Resp update(BusinessBuildingOwner buildingOwner , HttpServletRequest request){
-        if (null==buildingOwner){
+    public Resp update(BusinessBuildingOwner entity , HttpServletRequest request){
+        if (null==entity){
             return Resp.error(ResultCode.PARAM_IS_NULL);
         }
-        return Resp.success(buildingOwnerService.updateById(buildingOwner));
+        return Resp.success(entityService.updateById(entity));
     }
 
 

@@ -10,3 +10,4 @@ import com.insedesign.communitybuilding.mapper.BusinessBuildingUnitMapper;
 public class BusinessBuildingUnitServiceImpl extends ServiceImpl<BusinessBuildingUnitMapper, BusinessBuildingUnit> implements BusinessBuildingUnitService {
 
 }
+

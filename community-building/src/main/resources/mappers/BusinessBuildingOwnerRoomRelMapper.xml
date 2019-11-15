@@ -4,8 +4,7 @@
   <resultMap id="BaseResultMap" type="com.insedesign.communitybuilding.model.entity.BusinessBuildingOwnerRoomRel">
     <!--@mbg.generated-->
     <!--@Table business_building_owner_room_rel-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="rel_id" jdbcType="VARCHAR" property="relId" />
+    <id column="rel_id" jdbcType="VARCHAR" property="relId" />
     <result column="owner_id" jdbcType="VARCHAR" property="ownerId" />
     <result column="room_id" jdbcType="VARCHAR" property="roomId" />
     <result column="b_id" jdbcType="VARCHAR" property="bId" />
@@ -17,6 +16,6 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, rel_id, owner_id, room_id, b_id, user_id, remark, create_time, operate, `state`
+    rel_id, owner_id, room_id, b_id, user_id, remark, create_time, operate, `state`
   </sql>
 </mapper>

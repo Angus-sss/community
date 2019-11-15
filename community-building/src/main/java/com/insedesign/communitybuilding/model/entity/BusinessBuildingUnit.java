@@ -4,16 +4,17 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 @Data
 @TableName(value = "business_building_unit")
-public class BusinessBuildingUnit {
+public class BusinessBuildingUnit implements Serializable {
     /**
      * 单元ID
      */
-    @TableField(value = "unit_id")
+    @TableId(value = "unit_id", type = IdType.INPUT)
     private String unitId;
 
     /**
@@ -70,6 +71,14 @@ public class BusinessBuildingUnit {
     @TableField(value = "operate")
     private String operate;
 
+    /**
+     * 0为删除1为存在
+     */
+    @TableField(value = "state")
+    private Integer state;
+
+    private static final long serialVersionUID = 1L;
+
     public static final String COL_UNIT_ID = "unit_id";
 
     public static final String COL_B_ID = "b_id";
@@ -89,4 +98,6 @@ public class BusinessBuildingUnit {
     public static final String COL_CREATE_TIME = "create_time";
 
     public static final String COL_OPERATE = "operate";
+
+    public static final String COL_STATE = "state";
 }
