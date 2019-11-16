@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insedesign.community.mapper.BusinessOwnerCarMapper">
+  <resultMap id="BaseResultMap" type="com.insedesign.community.model.entity.BusinessOwnerCar">
+    <!--@mbg.generated-->
+    <!--@Table business_owner_car-->
+    <result column="car_id" jdbcType="VARCHAR" property="carId" />
+    <result column="owner_id" jdbcType="VARCHAR" property="ownerId" />
+    <result column="b_id" jdbcType="VARCHAR" property="bId" />
+    <result column="car_num" jdbcType="VARCHAR" property="carNum" />
+    <result column="car_brand" jdbcType="VARCHAR" property="carBrand" />
+    <result column="car_type" jdbcType="VARCHAR" property="carType" />
+    <result column="car_color" jdbcType="VARCHAR" property="carColor" />
+    <result column="ps_id" jdbcType="VARCHAR" property="psId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operate" jdbcType="VARCHAR" property="operate" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+</mapper>

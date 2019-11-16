@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insedesign.community.mapper.BusinessUserLevelMapper">
+  <resultMap id="BaseResultMap" type="com.insedesign.community.model.entity.BusinessUserLevel">
+    <!--@mbg.generated-->
+    <!--@Table business_user_level-->
+    <id column="level_id" jdbcType="VARCHAR" property="levelId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="exp" jdbcType="INTEGER" property="exp" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operate" jdbcType="VARCHAR" property="operate" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    level_id, user_id, `exp`, `value`, create_time, operate, `state`
+  </sql>
+</mapper>
