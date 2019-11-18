@@ -37,28 +37,32 @@ public enum ResultCode {
     ACCOUNT_EXCEPTION(50004, "账号状态异常"),
 
     //错误
-    PARAM_IS_INVALID(60000, "参数无效"),
-    PARAM_IS_RE(60000, "参数中有已存在的对象"),
+    SYSTEM_INNER_ERROR(60000, "系统繁忙，请稍后重试"),
     PARAM_IS_NULL(60001, "参数为空"),
     PARAM_TYPE_ERROR(60002, "参数类型错误"),
     PARAM_NOT_COMPLETE(60003, "参数缺失"),
     CODE_IS_ERROR(60004, "验证码错误"),
+    SPECIFIED_QUESTIONED_USER_NOT_EXIST(60005, "业务出现问题"),
+    PARAM_IS_INVALID(60006, "参数无效"),
+    PARAM_IS_RE(60007, "参数中有已存在的对象"),
+
+
 
     //等待
     SUBMIT_AUDIT(70000, "已提交审核"),
     WAIT_FOR_REVIEW(70001, "正在审核"),
 
     //业务错误
-    SPECIFIED_QUESTIONED_USER_NOT_EXIST(80000, "业务出现问题"),
 
     //系统错误
-    SYSTEM_INNER_ERROR(90000, "系统繁忙，请稍后重试"),
 
     //数据错误
     DATA_IS_NONE(62000, "数据未找到"),
     DATA_IS_WRONG(62001, "数据有误"),
     DATA_IS_HAS(620002, "数据已存在"),
 
+    //数据条数限制
+    DATA_MAX_CEILING(80200, "数量已经达上限"),
 
     //权限错误
     PERMISSION_NO_ACCESS(65000, "无访问权限"),

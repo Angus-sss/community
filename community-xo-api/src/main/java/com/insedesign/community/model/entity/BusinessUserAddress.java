@@ -30,6 +30,12 @@ public class BusinessUserAddress implements Serializable {
     private String userId;
 
     /**
+     * 姓名
+     */
+    @TableField(value = "name")
+    private String name;
+
+    /**
      * 电话
      */
     @TableField(value = "tel")
@@ -51,7 +57,7 @@ public class BusinessUserAddress implements Serializable {
      * 是否为默认地址 1，表示默认地址 0 或空不是默认地址
      */
     @TableField(value = "is_default")
-    private String isDefault;
+    private Integer isDefault;
 
     /**
      * 创建时间
@@ -78,6 +84,8 @@ public class BusinessUserAddress implements Serializable {
     public static final String COL_B_ID = "b_id";
 
     public static final String COL_USER_ID = "user_id";
+
+    public static final String COL_NAME = "name";
 
     public static final String COL_TEL = "tel";
 

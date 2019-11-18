@@ -1,6 +1,6 @@
 spring:
   application:
-    name: community-car
+    name: community-building
   profiles:
     active:
   cloud:

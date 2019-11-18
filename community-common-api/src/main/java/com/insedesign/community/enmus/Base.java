@@ -33,6 +33,11 @@ public class Base {
     public static final Integer IS_DEL = 0;
     public static final Integer IS_OK = 1;
 
+    /**
+     * 数据状态 通用的 0 和 1
+     */
+    public static final Integer STATE0 = 0;
+    public static final Integer STATE1 = 1;
 
     /**
      * ID前缀
@@ -40,17 +45,32 @@ public class Base {
     public static final String BUILDING = "BUILDING";
     public static final String ROOM = "ROOM";
     public static final String OWNER = "OWNER";
-    public static final String LV = "LV";
     public static final String IMG = "IMG";
     public static final String CAR = "CAR";
     public static final String USER = "USER";
     public static final String ADMIN = "ADMIN";
+    public static final String U_ADDRESS = "UAS";
+    public static final String U_ATTR = "UAR";
+    public static final String U_TAG = "UTG";
+    public static final String U_CRED = "CRED";
+    public static final String U_LEVEL = "ULV";
 
 
+    /**
+     * 最大数据条数
+     */
+    public static final Integer DATA_NUM_MAX_1 = 1;
+    public static final Integer DATA_NUM_MAX_2 = 2;
+    public static final Integer DATA_NUM_MAX_5 = 5;
+    public static final Integer DATA_NUM_MAX_10= 10;
+    public static final Integer DATA_NUM_MAX_20= 20;
+    public static final Integer DATA_NUM_MAX_50= 50;
+    public static final Integer DATA_NUM_1MAX_100= 100;
 
-
-
-
-
+    /**
+     * 用户地址状态
+     */
+    public static final Integer ADDRESS_IS_DEFAULT = 1;
+    public static final Integer ADDRESS_NOT_DEFAULT = 0;
 
 }

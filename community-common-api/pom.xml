@@ -34,6 +34,12 @@
             <version>3.9</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>9.0.27</version>
+            <scope>compile</scope>
+        </dependency>
         <!--mybatis-plus-->
     </dependencies>
 

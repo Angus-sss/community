@@ -18,6 +18,11 @@ public class UserAddressVo {
     private String userId;
 
     /**
+     * 姓名
+     */
+    private String name;
+
+    /**
      * 电话
      */
     private String tel;
