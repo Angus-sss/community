@@ -7,13 +7,13 @@
     <id column="level_id" jdbcType="VARCHAR" property="levelId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="exp" jdbcType="INTEGER" property="exp" />
-    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="lv_name" jdbcType="VARCHAR" property="lvName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="operate" jdbcType="VARCHAR" property="operate" />
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    level_id, user_id, `exp`, `value`, create_time, operate, `state`
+    level_id, user_id, `exp`, lv_name, create_time, operate, `state`
   </sql>
 </mapper>

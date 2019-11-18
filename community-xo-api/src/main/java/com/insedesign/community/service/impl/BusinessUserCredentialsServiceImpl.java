@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.insedesign.community.model.entity.BusinessUserCredentials;
 import com.insedesign.community.mapper.BusinessUserCredentialsMapper;
 import com.insedesign.community.service.BusinessUserCredentialsService;
-
 @Service
-public class BusinessUserCredentialsServiceImpl extends ServiceImpl<BusinessUserCredentialsMapper, BusinessUserCredentials> implements BusinessUserCredentialsService {
+public class BusinessUserCredentialsServiceImpl extends ServiceImpl<BusinessUserCredentialsMapper, BusinessUserCredentials> implements BusinessUserCredentialsService{
 
 }
-

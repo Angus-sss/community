@@ -30,7 +30,7 @@ public class BusinessUserCredentials implements Serializable {
     private String userId;
 
     /**
-     * 证件类型
+     * 证件类型0为身份证，1为军官证，2为学生证，3为其他
      */
     @TableField(value = "credentials_cd")
     private String credentialsCd;

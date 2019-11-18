@@ -52,8 +52,6 @@ public enum ResultCode {
     SUBMIT_AUDIT(70000, "已提交审核"),
     WAIT_FOR_REVIEW(70001, "正在审核"),
 
-    //业务错误
-
     //系统错误
 
     //数据错误
@@ -66,6 +64,7 @@ public enum ResultCode {
 
     //权限错误
     PERMISSION_NO_ACCESS(65000, "无访问权限"),
+    ILLEGAL_OPERATION(66000,"警告！非法操作"),
 
     //文件上传
     UPLOAD_ERROR(66000, "上传失败");

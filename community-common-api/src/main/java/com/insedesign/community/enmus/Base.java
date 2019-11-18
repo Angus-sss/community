@@ -13,6 +13,12 @@ public class Base {
     public static final String THIS_USER = "user";
 
     /**
+     * Session 用户身份
+     */
+    public static final String IS_USER = "USER";
+    public static final String IS_ADMIN = "ADMIN";
+
+    /**
      * 常用的正则表达式 邮箱 手机
      */
     public static final String EMAIL_REGULAR = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";

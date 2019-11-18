@@ -30,10 +30,10 @@ public class BusinessUser implements Serializable {
     private String name;
 
     /**
-     * 管理员
+     * 暂时为管理员ADMIN 普通用户USER 关联admin表
      */
-    @TableField(value = "admin_id")
-    private String adminId;
+    @TableField(value = "user_status")
+    private String userStatus;
 
     /**
      * 邮箱地址
@@ -80,8 +80,8 @@ public class BusinessUser implements Serializable {
     /**
      * 用户等级，根据经验后台判断等级
      */
-    @TableField(value = "level_id")
-    private String levelId;
+    @TableField(value = "level")
+    private String level;
 
     /**
      * 创建时间
@@ -115,7 +115,7 @@ public class BusinessUser implements Serializable {
 
     public static final String COL_NAME = "name";
 
-    public static final String COL_ADMIN_ID = "admin_id";
+    public static final String COL_USER_STATUS = "user_status";
 
     public static final String COL_EMAIL = "email";
 
@@ -131,7 +131,7 @@ public class BusinessUser implements Serializable {
 
     public static final String COL_TEL = "tel";
 
-    public static final String COL_LEVEL_ID = "level_id";
+    public static final String COL_LEVEL = "level";
 
     public static final String COL_CREATE_TIME = "create_time";
 

@@ -12,10 +12,10 @@ import lombok.Data;
 @TableName(value = "business_user_admin")
 public class BusinessUserAdmin implements Serializable {
     /**
-     * 管理员id
+     * 主键
      */
-    @TableId(value = "admin_di", type = IdType.INPUT)
-    private String adminDi;
+    @TableId(value = "admin_id", type = IdType.INPUT)
+    private String adminId;
 
     /**
      * 管理员真实姓名
@@ -24,10 +24,22 @@ public class BusinessUserAdmin implements Serializable {
     private String adminName;
 
     /**
+     * 关联的用户
+     */
+    @TableField(value = "user_id")
+    private String userId;
+
+    /**
      * 管理员级别
      */
     @TableField(value = "rank")
     private String rank;
+
+    /**
+     * 创建人id
+     */
+    @TableField(value = "creater_id")
+    private String createrId;
 
     /**
      * 创建时间
@@ -43,11 +55,15 @@ public class BusinessUserAdmin implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static final String COL_ADMIN_DI = "admin_di";
+    public static final String COL_ADMIN_ID = "admin_id";
 
     public static final String COL_ADMIN_NAME = "admin_name";
 
+    public static final String COL_USER_ID = "user_id";
+
     public static final String COL_RANK = "rank";
+
+    public static final String COL_CREATER_ID = "creater_id";
 
     public static final String COL_CREATE_TIME = "create_time";
 

@@ -1,8 +1,6 @@
 package com.insedesign.community.communityuser.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.community.enmus.Base;
 import com.insedesign.community.enmus.ResultCode;
 import com.insedesign.community.model.entity.BusinessUser;
@@ -12,18 +10,20 @@ import com.insedesign.community.resp.Resp;
 import com.insedesign.community.service.BusinessUserAddressService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.WeakHashMap;
 
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/15 17:26
- * @Explain:
+ * @Explain: 用户地址信息
  */
 @RestController
 @RequestMapping("/address")
@@ -32,17 +32,34 @@ public class UserAddressController {
     private BusinessUserAddressService service;
 
     /**
-     * 根据用户id查找
-     * @param userId
+     * 获取当前用户的所有地址信息
+     ** @param session
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/selectAll")
+    public Resp selectByUserId(HttpSession session){
+        QueryWrapper<BusinessUserAddress> wrapper = new QueryWrapper<>();
+        wrapper.eq(BusinessUserAddress.COL_STATE,Base.IS_OK)
+        .eq(BusinessUserAddress.COL_USER_ID,thisUser(session).getUserId());
+        return Resp.success(service.getOne(wrapper));
+    }
+
+    /**
+     * 获取当前用户的单个地址信息
+     ** @param session
      * @return
      */
     @ResponseBody
     @PostMapping("/select")
-    public Resp selectByUserId(@NotNull String userId){
-        return Resp.success(service.getById(userId));
+    public Resp selectOne(@NotNull String addressId,HttpSession session){
+        QueryWrapper<BusinessUserAddress> wrapper = new QueryWrapper<>();
+        wrapper.eq(BusinessUserAddress.COL_ADDRESS_ID,addressId)
+                .eq(BusinessUserAddress.COL_USER_ID,thisUser(session).getUserId());
+        return Resp.success(service.getOne(wrapper));
     }
     /**
-     * 查询所有
+     * 查询所有用户的地址
      * @param
      * @return
      */
@@ -55,34 +72,16 @@ public class UserAddressController {
         queryWrapper.eq(BusinessUserAddress.COL_STATE, Base.IS_OK);
         return Resp.success(service.list(queryWrapper));
     }
-    /**
-     * 分页查询
-     * @param
-     * @return
-     */
-    @ResponseBody
-    @GetMapping("/select/{currentPage}/{pageSize}")
-    public Resp selectPage(@PathVariable int currentPage, @PathVariable int pageSize){
-        //条件构造器
-        QueryWrapper<BusinessUserAddress> queryWrapper = new QueryWrapper<>();
-        Page<BusinessUserAddress> page = new Page<>();
-        page.setCurrent(currentPage);
-        page.setSize(pageSize);
-        //查询状态为正常的数据
-        queryWrapper.eq(BusinessUserAddress.COL_STATE, Base.IS_OK);
-        IPage<BusinessUserAddress> carPage = service.page(page,queryWrapper);
-        return Resp.success(carPage.getRecords());
-    }
-
 
     /**
      * 增加 地址数量最多存5条
-     * @param userId
+     * @param session
      * @return
      */
     @ResponseBody
     @PostMapping("/add")
-    public Resp select(@NotNull String userId){
+    public Resp select(HttpSession session){
+        String userId = thisUser(session).getUserId();
         QueryWrapper<BusinessUserAddress> wrapper = new QueryWrapper<>();
         wrapper.eq(BusinessUserAddress.COL_USER_ID,userId);
         //地址最多存5条
@@ -141,13 +140,11 @@ public class UserAddressController {
         wrapper.eq(BusinessUserAddress.COL_ADDRESS_ID,address.getAddressId());
         service.update(address,wrapper);
         //设置新的默认值
-        QueryWrapper<BusinessUserAddress> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq(BusinessUserAddress.COL_ADDRESS_ID,addressId);
-        BusinessUserAddress one = service.getOne(wrapper1);
-        one.setIsDefault(Base.ADDRESS_IS_DEFAULT);
-        QueryWrapper<BusinessUserAddress> wrapper2 = new QueryWrapper<>();
-        wrapper2.eq(BusinessUserAddress.COL_ADDRESS_ID,addressId);
-        if (service.update(one,wrapper2)){
+        BusinessUserAddress newDefaultAddress = service.getById(addressId);
+        newDefaultAddress.setIsDefault(Base.ADDRESS_IS_DEFAULT);
+        QueryWrapper<BusinessUserAddress> wrapperById = new QueryWrapper<>();
+        wrapperById.eq(BusinessUserAddress.COL_ADDRESS_ID,addressId);
+        if (service.update(newDefaultAddress,wrapperById)){
             return Resp.success();
         }
         return Resp.error(ResultCode.ERROR);
@@ -198,8 +195,7 @@ public class UserAddressController {
      * 获取当前用户
      */
     private BusinessUser thisUser(HttpSession session){
-        BusinessUser thisUser = (BusinessUser)session.getAttribute(Base.THIS_USER);
-        return thisUser;
+        return (BusinessUser)session.getAttribute(Base.THIS_USER);
     }
 
 }

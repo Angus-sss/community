@@ -4,14 +4,16 @@
   <resultMap id="BaseResultMap" type="com.insedesign.community.model.entity.BusinessUserAdmin">
     <!--@mbg.generated-->
     <!--@Table business_user_admin-->
-    <id column="admin_di" jdbcType="VARCHAR" property="adminDi" />
+    <id column="admin_id" jdbcType="VARCHAR" property="adminId" />
     <result column="admin_name" jdbcType="VARCHAR" property="adminName" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="rank" jdbcType="VARCHAR" property="rank" />
+    <result column="creater_id" jdbcType="VARCHAR" property="createrId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    admin_di, admin_name, `rank`, create_time, `state`
+    admin_id, admin_name, user_id, `rank`, creater_id, create_time, `state`
   </sql>
 </mapper>

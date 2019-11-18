@@ -32,8 +32,8 @@ public class BusinessUserLevel implements Serializable {
     /**
      * 身份名称
      */
-    @TableField(value = "value")
-    private String value;
+    @TableField(value = "lv_name")
+    private String lvName;
 
     /**
      * 创建时间
@@ -61,7 +61,7 @@ public class BusinessUserLevel implements Serializable {
 
     public static final String COL_EXP = "exp";
 
-    public static final String COL_VALUE = "value";
+    public static final String COL_LV_NAME = "lv_name";
 
     public static final String COL_CREATE_TIME = "create_time";
 

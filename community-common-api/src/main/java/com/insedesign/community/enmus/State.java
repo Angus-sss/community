@@ -17,7 +17,7 @@ public enum State{
      */
     ADMIN_STATUS_BOSS("老板", "BOSS"),
     ADMIN_STATUS_SUPER("超管", "SUPER"),
-    ADMIN_STATUS_ADMIN("普通", "ADMIN"),
+    ADMIN_STATUS_ADMIN("普管", "ADMIN"),
 
 
     /**

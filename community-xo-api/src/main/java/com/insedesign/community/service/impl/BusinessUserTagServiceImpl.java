@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.insedesign.community.mapper.BusinessUserTagMapper;
 import com.insedesign.community.model.entity.BusinessUserTag;
 import com.insedesign.community.service.BusinessUserTagService;
-
 @Service
-public class BusinessUserTagServiceImpl extends ServiceImpl<BusinessUserTagMapper, BusinessUserTag> implements BusinessUserTagService {
+public class BusinessUserTagServiceImpl extends ServiceImpl<BusinessUserTagMapper, BusinessUserTag> implements BusinessUserTagService{
 
 }
-

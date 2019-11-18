@@ -4,11 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.insedesign.community.Md5Utils;
 import com.insedesign.community.enmus.ResultCode;
 import com.insedesign.community.model.dto.AppealDto;
-import com.insedesign.community.model.entity.BusinessUser;
-import com.insedesign.community.model.entity.BusinessUserAppeal;
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.service.BusinessUserAppealService;
-import com.insedesign.community.service.BusinessUserService;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
@@ -82,6 +78,5 @@ public class AppealController {
         }
         return Resp.error(ResultCode.ERROR);
     }
-
 
 }

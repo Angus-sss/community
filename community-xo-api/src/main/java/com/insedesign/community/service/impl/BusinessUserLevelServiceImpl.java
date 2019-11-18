@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.insedesign.community.mapper.BusinessUserLevelMapper;
 import com.insedesign.community.model.entity.BusinessUserLevel;
 import com.insedesign.community.service.BusinessUserLevelService;
-
 @Service
-public class BusinessUserLevelServiceImpl extends ServiceImpl<BusinessUserLevelMapper, BusinessUserLevel> implements BusinessUserLevelService {
+public class BusinessUserLevelServiceImpl extends ServiceImpl<BusinessUserLevelMapper, BusinessUserLevel> implements BusinessUserLevelService{
 
 }
-

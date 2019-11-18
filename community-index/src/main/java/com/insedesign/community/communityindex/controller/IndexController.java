@@ -1,10 +1,6 @@
 package com.insedesign.community.communityindex.controller;
 
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.service.BusinessBuildingRoomService;
-import com.insedesign.community.service.BusinessBuildingUnitService;
-import com.insedesign.community.service.BusinessNewsService;
-import com.insedesign.community.service.BusinessParkingSpaceService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -7,7 +7,7 @@
     <id column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="b_id" jdbcType="VARCHAR" property="bId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="admin_id" jdbcType="VARCHAR" property="adminId" />
+    <result column="user_status" jdbcType="VARCHAR" property="userStatus" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -15,7 +15,7 @@
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
-    <result column="level_id" jdbcType="VARCHAR" property="levelId" />
+    <result column="level" jdbcType="VARCHAR" property="level" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin" />
     <result column="operate" jdbcType="VARCHAR" property="operate" />
@@ -23,7 +23,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    user_id, b_id, `name`, admin_id, email, address, `password`, location_cd, age, sex, 
-    tel, level_id, create_time, last_login, operate, `state`
+    user_id, b_id, `name`, user_status, email, address, `password`, location_cd, age, 
+    sex, tel, `level`, create_time, last_login, operate, `state`
   </sql>
 </mapper>

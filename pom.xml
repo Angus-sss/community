@@ -16,6 +16,7 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
+        <!--会员模块-->
         <module>community-user</module>
         <!--小区模块-->
         <module>community-business</module>
@@ -25,8 +26,6 @@
         <module>community-common-api</module>
         <!--用户公用模块-->
         <module>community-xo-api</module>
-        <!--管理员模块服务器-->
-        <module>community-admin</module>
         <!--停车和车辆管理模块-->
         <module>community-car</module>
         <!--查询服务器-->
