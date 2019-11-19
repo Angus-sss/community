@@ -1,4 +1,4 @@
-package com.insedesign.community;
+package com.insedesign.community.utils;
 
 import java.security.MessageDigest;
 

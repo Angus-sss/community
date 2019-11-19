@@ -1,14 +1,5 @@
-package com.insedesign.community.communitybusiness;
+package com.insedesign.communitymain;
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
-
-/**
- * @author NALHOUG
- */
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,11 +17,12 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
         "com.insedesign.community.service",
         "com.insedesign.community.utils",
-})
-public class CommunityBusinessApplication {
+        })
+public class CommunityMainApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CommunityBusinessApplication.class, args);
+        SpringApplication.run(CommunityMainApplication.class, args);
     }
+
 
 }

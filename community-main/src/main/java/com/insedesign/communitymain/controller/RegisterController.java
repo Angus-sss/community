@@ -1,13 +1,13 @@
 package com.insedesign.communitymain.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.insedesign.community.DateUtil;
+import com.insedesign.community.utils.DateUtil;
 import com.insedesign.community.enmus.Base;
 import com.insedesign.community.enmus.ResultCode;
 import com.insedesign.community.model.entity.*;
 import com.insedesign.community.resp.Resp;
 import com.insedesign.community.model.dto.UserRegisterDto;
-import com.insedesign.community.Md5Utils;
+import com.insedesign.community.utils.Md5Utils;
 import com.insedesign.community.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

@@ -1,4 +1,4 @@
-package com.insedesign.community;
+package com.insedesign.community.utils;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 

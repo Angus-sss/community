@@ -1,7 +1,7 @@
 package com.insedesign.community.communityuser.common.utils;
 
-import com.insedesign.community.communityuser.model.entity.BusinessUser;
 import com.insedesign.community.enmus.Base;
+import com.insedesign.community.model.entity.BusinessUser;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
