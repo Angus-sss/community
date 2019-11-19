@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.community.enmus.Base;
 import com.insedesign.community.enmus.ResultCode;
+import com.insedesign.community.model.entity.BusinessCommunityMember;
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.communitybusiness.model.entity.BusinessCommunityMember;
-import com.insedesign.community.communitybusiness.service.BusinessCommunityMemberService;
+import com.insedesign.community.service.BusinessCommunityMemberService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +41,7 @@ public class CommunityMemberController {
         return Resp.error(ResultCode.ERROR);
     }
     /**
-     * 根据房号找
+     * 根据id查找
      * @param ownerId
      * @return
      */
@@ -113,7 +113,7 @@ public class CommunityMemberController {
     }
 
     /**
-     * 删除
+     * 修改
      * @param
      * @return
      */

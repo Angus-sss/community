@@ -6,9 +6,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.community.enmus.Base;
 import com.insedesign.community.enmus.ResultCode;
+import com.insedesign.community.model.entity.BusinessParkingSpace;
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.communitycar.model.entity.BusinessParkingSpace;
-import com.insedesign.community.communitycar.service.BusinessParkingSpaceService;
+import com.insedesign.community.service.BusinessParkingSpaceService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.web.bind.annotation.*;
 

@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan("com.insedesign.communitybuilding.mapper")
+@MapperScan(value = "com.insedesign.community.mapper")
 public class CommunityBusinessApplication {
 
     public static void main(String[] args) {

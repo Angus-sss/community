@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.community.enmus.Base;
 import com.insedesign.community.enmus.ResultCode;
+import com.insedesign.community.model.entity.BusinessCommunity;
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.communitybusiness.model.entity.BusinessCommunity;
-import com.insedesign.community.communitybusiness.service.BusinessCommunityService;
+import com.insedesign.community.service.BusinessCommunityService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,11 @@ import java.util.List;
 /**
  * @Author: NALHOUG
  * @Time: 2019/11/14 14:42
- * @Explain:
+ * @Explain: 小区信息接口
+ * 1. 获取小区信息
+ * 2. 修改小区信息
+ * 3. 添加小区信息
+ * 4. 删除小区信息
  */
 @RestController
 @RequestMapping("/community")
@@ -41,17 +45,17 @@ public class CommunityController {
         return Resp.error(ResultCode.ERROR);
     }
     /**
-     * 根据房号找
+     * 根据小区编号找
      * @param communityId
      * @return
      */
     @ResponseBody
     @PostMapping("/select")
-    public Resp select(String communityId){
-        if (null==communityId){
-            return Resp.error(ResultCode.PARAM_IS_NULL);
+    public Resp select(@NotNull String communityId){
+        if (null!=communityService.getById(communityId)){
+            return Resp.success(communityService.getById(communityId));
         }
-        return Resp.success(communityService.getById(communityId));
+        return Resp.error(ResultCode.DATA_IS_NONE);
     }
    
     /**
@@ -113,7 +117,7 @@ public class CommunityController {
     }
 
     /**
-     * 删除
+     * 更新
      * @param
      * @return
      */

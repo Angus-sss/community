@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.insedesign.community.enmus.Base;
 import com.insedesign.community.enmus.ResultCode;
+import com.insedesign.community.model.entity.BusinessBuildingOwnerRoomRel;
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.communitycar.model.entity.BusinessBuildingOwnerRoomRel;
-import com.insedesign.community.communitycar.service.BusinessBuildingOwnerRoomRelService;
+import com.insedesign.community.service.BusinessBuildingOwnerRoomRelService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
