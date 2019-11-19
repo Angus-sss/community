@@ -1,14 +1,20 @@
 package com.insedesign.community.communityindex.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.insedesign.community.model.entity.BusinessCommunity;
+import com.insedesign.community.model.entity.BusinessCommunityMember;
 import com.insedesign.community.resp.Resp;
-import com.insedesign.community.service.BusinessBuildingRoomService;
-import com.insedesign.community.service.BusinessBuildingUnitService;
-import com.insedesign.community.service.BusinessNewsService;
-import com.insedesign.community.service.BusinessParkingSpaceService;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.insedesign.community.service.*;
+import com.insedesign.community.utils.JsonUtils;
+import com.insedesign.community.utils.StringUtils;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @Author: NALHOUG
@@ -18,15 +24,17 @@ import javax.annotation.Resource;
 @RestController
 public class IndexController {
     @Resource
-    BusinessBuildingUnitService buildingUnitService;
+    private BusinessBuildingUnitService buildingUnitService;
     @Resource
-    BusinessBuildingRoomService buildingRoomService;
+    private BusinessBuildingRoomService buildingRoomService;
     @Resource
-    BusinessParkingSpaceService parkingSpaceService;
+    private BusinessParkingSpaceService parkingSpaceService;
     @Resource
-    BusinessNewsService newsService;
-
-
+    private BusinessNewsService newsService;
+    @Resource
+    private BusinessCommunityMemberService memberService;
+    @Resource
+    private BusinessCommunityService communityService;
 
 
     /**
@@ -34,31 +42,57 @@ public class IndexController {
      * 一个请求获取多个数据
      * @return map集合数据
      */
-    @PostMapping("/index")
+    @GetMapping("/index")
     public Resp indexDates(){
         return Resp.success();
-
     }
 
     /**
-     * 导航信息
+     * 页面静态信息
      * @return
      */
-    @PostMapping("/head")
-    public Resp head(){
-        return Resp.success();
+    @GetMapping("/info")
+    public Resp staticInfo(){
+        StringRedisTemplate redisTemplate = new StringRedisTemplate();
+        //从redis中获取数据
+        String jsonResult = redisTemplate.opsForValue().get("STATIC_INFO");
+        //判断redis中是否有数据
+        if (StringUtils.isNotEmpty(jsonResult)){
+            //如果redis有数据
+            Map map = JsonUtils.jsonToMap(jsonResult);
+            return Resp.success(map);
+        }
+        //如果redis没有数据 从MySQL数据库中获取
+        Resp resp = new Resp();
+        QueryWrapper<BusinessCommunity> wrapper = new QueryWrapper<>();
+        Map<String, Object> map = communityService.getMap(wrapper);
 
+        //将数据存到redis中
+        redisTemplate.opsForValue().set("STATIC_INFO", Objects.requireNonNull(JsonUtils.objectToJson(map)));
+
+
+        return Resp.success();
     }
 
     /**
-     * 站点信息
+     * 首页图片
      * @return
      */
-    @PostMapping("/siteInfo")
-    public Resp siteInfo(){
+    @GetMapping("/banner")
+    public Resp banner(){
         return Resp.success();
-
     }
 
+
+    /**
+     * 小区人数
+     * @return
+     */
+    @CachePut("member")
+    @GetMapping("/member")
+    public String member(){
+        QueryWrapper<BusinessCommunityMember> memberQueryWrapper = new QueryWrapper<>();
+        return "Resp.success(memberService.count(memberQueryWrapper))";
+    }
 
 }

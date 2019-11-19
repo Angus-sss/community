@@ -11,9 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @author NALHOUG
  */
 
-/**
- * @author NALHOUG
- */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients

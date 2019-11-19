@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="community-common-api" />
+        <module name="community-user" />
+        <module name="community-business" />
+        <module name="community-car" />
+        <module name="community-sms" />
+        <module name="community-xo-api" />
+        <module name="community-index" />
+        <module name="community-building" />
+        <module name="community-main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="community" target="1.8" />
+      <module name="community-admin" target="1.8" />
+      <module name="community-building" target="1.8" />
+      <module name="community-business" target="1.8" />
+      <module name="community-car" target="1.8" />
+      <module name="community-common-api" target="1.8" />
+      <module name="community-index" target="1.8" />
+      <module name="community-main" target="1.8" />
+      <module name="community-sms" target="1.8" />
+      <module name="community-user" target="1.8" />
+      <module name="community-xo-api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="community-admin" options="-parameters" />
+      <module name="community-building" options="-parameters" />
+      <module name="community-business" options="-parameters" />
+      <module name="community-car" options="-parameters" />
+      <module name="community-index" options="-parameters" />
+      <module name="community-main" options="-parameters" />
+      <module name="community-sms" options="-parameters" />
+      <module name="community-user" options="-parameters" />
+    </option>
+  </component>
+</project>

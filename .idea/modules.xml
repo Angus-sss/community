@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/community.iml" filepath="$PROJECT_DIR$/.idea/community.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-building/community-building.iml" filepath="$PROJECT_DIR$/community-building/community-building.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-business/community-business.iml" filepath="$PROJECT_DIR$/community-business/community-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-car/community-car.iml" filepath="$PROJECT_DIR$/community-car/community-car.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-common-api/community-common-api.iml" filepath="$PROJECT_DIR$/community-common-api/community-common-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-index/community-index.iml" filepath="$PROJECT_DIR$/community-index/community-index.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-main/community-main.iml" filepath="$PROJECT_DIR$/community-main/community-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-sms/community-sms.iml" filepath="$PROJECT_DIR$/community-sms/community-sms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-user/community-user.iml" filepath="$PROJECT_DIR$/community-user/community-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/community-xo-api/community-xo-api.iml" filepath="$PROJECT_DIR$/community-xo-api/community-xo-api.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-building" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-business" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-car" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-common-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-index" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-main" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-sms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/community-xo-api" charset="UTF-8" />
+  </component>
+</project>

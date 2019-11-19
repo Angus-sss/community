@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="addSerializeUid" value="true" />
+        <option name="generateService" value="true" />
+        <option name="generateServiceInterface" value="true" />
+        <option name="javaMapperPackage" value="com.insedesign.community.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/community-xo-api/src/main/java" />
+        <option name="javaModelPackage" value="com.insedesign.community.model.entity" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/community-xo-api/src/main/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="community-xo-api" />
+        <option name="lombokDataAnnotation" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="community-admin">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.communityadmin.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-admin/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.communityadmin.model.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-admin/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.insedesign.communityadmin.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-admin/src/main/java" />
+                  <option name="javaServicePackage" value="com.insedesign.communityadmin.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-admin/src/main/java" />
+                  <option name="xmlPackage" value="mappers" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/community-admin/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="community-building">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.communitybuilding.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-building/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.communitybuilding.model.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-building/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.insedesign.communitybuilding.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-building/src/main/java" />
+                  <option name="javaServicePackage" value="com.insedesign.communitybuilding.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-building/src/main/java" />
+                  <option name="xmlPackage" value="mappers" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/community-building/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="community-business">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.communitybusiness.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-business/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.communitybusiness.model.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-business/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.insedesign.communitybusiness.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-business/src/main/java" />
+                  <option name="javaServicePackage" value="com.insedesign.communitybusiness.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-business/src/main/java" />
+                  <option name="xmlPackage" value="mappers" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/community-business/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="community-common-api">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.model.entity" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-common-api/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.model.a" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-common-api/src/main/java" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-common-api/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-common-api/src/main/java" />
+                  <option name="xmlPackage" value="mapperxml" />
+                  <option name="xmlPath" value="D:\Desktop\三阶段练手\community\community-common-api\src\main\java\com\insedesign\b" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="community-main">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.community.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-main/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.community.model.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-main/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.insedesign.community.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-main/src/main/java" />
+                  <option name="javaServicePackage" value="com.insedesign.community.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-main/src/main/java" />
+                  <option name="xmlPackage" value="mappers" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/community-main/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="community-user">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.communityuser.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-user/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.communityuser.model.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-user/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.insedesign.communityuser.service.impl" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-user/src/main/java" />
+                  <option name="javaServicePackage" value="com.insedesign.communityuser.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-user/src/main/java" />
+                  <option name="xmlPackage" value="mappers" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/community-user/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="community-xo-api">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.insedesign.community.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/community-xo-api/src/main/java" />
+                  <option name="javaModelPacakge" value="com.insedesign.community.model.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/community-xo-api/src/main/java" />
+                  <option name="javaServiceInterfacePackage" value="com.insedesign.community.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/community-xo-api/src/main/java" />
+                  <option name="javaServicePackage" value="com.insedesign.community.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/community-xo-api/src/main/java" />
+                  <option name="xmlPackage" value="mappers" />
+                  <option name="xmlPath" value="D:\Desktop\三阶段练手\community\community-xo-api\src\main\resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="community:business_building">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessBuilding" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_building_owner">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessBuildingOwner" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_building_owner_room_rel">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessBuildingOwnerRoomRel" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_building_room">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessBuildingRoom" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_building_unit">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessBuildingUnit" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_community">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessCommunity" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_community_member">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessCommunityMember" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_news">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessNews" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_owner_car">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessOwnerCar" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_parking_space">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessParkingSpace" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUser" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_address">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserAddress" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_admin">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserAdmin" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_appeal">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserAppeal" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_attr">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserAttr" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_credentials">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserCredentials" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_level">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserLevel" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="community:business_user_tag">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BusinessUserTag" />
+                  <option name="moduleName" value="community-xo-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="userMybatisPlus" value="true" />
+        <option name="xmlMapperPackage" value="mappers" />
+        <option name="xmlMapperPath" value="D:\Desktop\三阶段练手\community\community-xo-api\src\main\resources" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

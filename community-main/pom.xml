@@ -46,11 +46,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-core</artifactId>
-            <version>1.6.3</version>
-        </dependency>
         <!--druid连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
