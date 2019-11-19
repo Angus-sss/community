@@ -32,6 +32,8 @@
         <module>community-index</module>
         <!--入口服务器（登录注册账号申诉等）-->
         <module>community-main</module>
+        <!--消息模块-->
+        <module>community-sms</module>
     </modules>
     <!--版本管理-->
     <properties>
