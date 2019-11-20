@@ -8,6 +8,7 @@ import com.insedesign.community.service.*;
 import com.insedesign.community.utils.JsonUtils;
 import com.insedesign.community.utils.StringUtils;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -88,11 +89,10 @@ public class IndexController {
      * 小区人数
      * @return
      */
-    @CachePut("member")
+   @Cacheable
     @GetMapping("/member")
-    public String member(){
-        QueryWrapper<BusinessCommunityMember> memberQueryWrapper = new QueryWrapper<>();
-        return "Resp.success(memberService.count(memberQueryWrapper))";
+    public int member(){
+        return memberService.count();
     }
 
 }
